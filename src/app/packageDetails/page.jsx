@@ -127,13 +127,13 @@ const PackageDetails = () => {
                   className="img-fluid rounded-3" 
                   style={{ width: "120px", height: "80px", objectFit: "cover" }}
                 />
-                <img 
+                {/* <img 
                   src="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/03/1c/9c.jpg" 
                   alt="Tour 4" 
                   className="img-fluid rounded-3" 
                   style={{ width: "120px", height: "80px", objectFit: "cover" }}
-                />
-                 <img 
+                /> */}
+                 {/* <img 
                   src="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/8f/78/23.jpg" 
                   alt="Tour 5" 
                   className="img-fluid rounded-3" 
@@ -144,7 +144,7 @@ const PackageDetails = () => {
                   alt="Tour 6" 
                   className="img-fluid rounded-3" 
                   style={{ width: "120px", height: "80px", objectFit: "cover" }}
-                />
+                /> */}
                 
               </div>
             </div>
@@ -380,7 +380,7 @@ const PackageDetails = () => {
         <div className="mb-3">
           <label className="form-label">Tickets:</label>
           <div className="d-flex justify-content-between align-items-center mb-2">
-            <span>Person (18+ years) $10.00</span>
+            <span>Person (18+ years) ₹10.00</span>
             <select className="form-select w-auto">
               <option>1</option>
               <option>2</option>
@@ -388,7 +388,7 @@ const PackageDetails = () => {
             </select>
           </div>
           <div className="d-flex justify-content-between align-items-center">
-            <span>Children (13–17 years) $10.00</span>
+            <span>Children (13–17 years) ₹10.00</span>
             <select className="form-select w-auto">
               <option>0</option>
               <option>1</option>
@@ -403,13 +403,13 @@ const PackageDetails = () => {
           <div className="form-check">
             <input className="form-check-input" type="checkbox" id="extra1" />
             <label className="form-check-label" htmlFor="extra1">
-              Service Per Person <span className="text-muted"> $10.00</span>
+              Service Per Person <span className="text-muted"> ₹10.00</span>
             </label>
           </div>
           <div className="form-check">
             <input className="form-check-input" type="checkbox" id="extra2" />
             <label className="form-check-label" htmlFor="extra2">
-              Service Per Booking <span className="text-muted"> $20.00</span>
+              Service Per Booking <span className="text-muted"> ₹20.00</span>
             </label>
           </div>
         </div>
@@ -418,7 +418,7 @@ const PackageDetails = () => {
         <div className="mb-3">
           <h5 className="d-flex justify-content-between">
             <span>Total Cost:</span>
-            <span className="text-primary fw-bold fs-5">$210.00</span>
+            <span className="text-primary fw-bold fs-5">₹210.00</span>
           </h5>
         </div>
 
@@ -467,10 +467,10 @@ const PackageDetails = () => {
                         <div className="d-flex justify-content-between align-items-center">
                           <div>
                             <span className="text-decoration-line-through text-muted me-2">
-                              $1343.16
+                             ₹1343.16
                             </span>
                             <span className="fw-bold text-danger">
-                              $1074.53
+                             ₹1074.53
                             </span>
                           </div>
                           <a href="#" className="btn btn-sm btn-gradient-outline-primary rounded-pill px-3">
