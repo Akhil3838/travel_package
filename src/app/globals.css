@@ -1,42 +1,163 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* about us */
+/* AboutPage.css */
+
+/* Base Styles */
+.about-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.section-title {
+  color: #2c3e50;
+  position: relative;
+  padding-bottom: 15px;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #3498db;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Hero Banner */
+.hero-banner {
+  background: url('https://images.unsplash.com/photo-1464037866556-6812c9d1c72e') center/cover no-repeat;
+  height: 400px;
+  position: relative;
+  margin-bottom: 60px;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Services Section */
+.services-section {
+  background-color: #f8f9fa;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.service-icon {
+  font-size: 2.5rem;
+  color: #3498db;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Values Section */
+.value-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.value-icon {
+  font-size: 2.5rem;
+}
+
+/* signle package */
+
+.breadcrumb-arrow .breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: #ccc;
+  padding: 0 0.5rem;
+}
+
+.breadcrumb-arrow .breadcrumb-item a {
+  text-decoration: none; /* Removes underline */
+}
+
+
+/* Gradient Button Colors */
+.btn-gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #746b7c 100%);
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient-primary:hover {
+  background: linear-gradient(135deg, #5a6fd1 0%, #746b7c  100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Outline Gradient Button */
+.btn-outline-gradient-primary {
+  border: 2px solid transparent;
+  background-image: linear-gradient(white, white), 
+                    linear-gradient(135deg, #667eea 0%,#746b7c  100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: #667eea;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gradient-primary:hover {
+  color: white;
+  background-image: linear-gradient(135deg, #667eea 0%, #746b7c  100%);
+}
+
+/* Gradient Outline for Small Buttons */
+.btn-gradient-outline-primary {
+  border: 2px solid transparent;
+  background-image: linear-gradient(white, white), 
+                    linear-gradient(135deg, #667eea 0%, #746b7c  100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: #667eea;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0.75rem;
+}
+
+.btn-gradient-outline-primary:hover {
+  color: white;
+  background-image: linear-gradient(135deg, #667eea 0%, #746b7c  100%);
+}
+.accordion-button::after {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.accordion-button.collapsed::after {
+  transform: rotate(90deg); /* Right arrow on collapsed */
+}
+
+.accordion-button {
+  border-radius: 0.5rem !important;
+}
+
+.accordion-item {
+  border-radius: 0.6rem;
+}
+
+
+.included-exclude-section i {
+  font-size: 1.1rem;
 }
