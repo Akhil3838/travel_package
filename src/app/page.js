@@ -69,7 +69,7 @@ export default function Home() {
           style={{ objectFit: "cover", objectPosition: "center" }}
         >
           <source src="https://cdn.pixabay.com/video/2019/02/19/21528-318978038_tiny.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          Your browser does not support the video tag
         </video>
         <div className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
              style={{ 
@@ -110,15 +110,16 @@ export default function Home() {
     <span className="carousel-control-next-icon"></span>
   </button> */}
 </div>
-  <div id="foodCarousel" className="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="3000">
+<div id="foodCarousel" className="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="3000">
   <div className="carousel-inner rounded-3" style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
     
     {/* Slide 1 */}
     <div className="carousel-item active">
       <div className="position-relative overflow-hidden" style={{ height: "200px" }}>
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
           alt="Gourmet Dish"
+          fill
           className="w-100 h-100"
           style={{ objectFit: "cover", objectPosition: "center" }}
         />
@@ -132,13 +133,14 @@ export default function Home() {
         </div>
       </div>
     </div>
-    
+
     {/* Slide 2 */}
     <div className="carousel-item">
       <div className="position-relative overflow-hidden" style={{ height: "200px" }}>
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38"
           alt="Pizza"
+          fill
           className="w-100 h-100"
           style={{ objectFit: "cover", objectPosition: "center" }}
         />
@@ -172,8 +174,7 @@ export default function Home() {
       style={{ width: "8px", height: "8px", borderRadius: "50%" }}
     ></button>
   </div>
-</div>
-</div>
+</div></div>
 
           {/* Center - Main Image */}
 <div className="col-md-6 position-relative text-center d-flex align-items-center justify-content-center p-0 overflow-hidden">
@@ -265,7 +266,7 @@ export default function Home() {
             style={{ height: "200px", objectFit: "cover" }}
           >
             <source src="https://cdn.pixabay.com/video/2024/12/03/244754_tiny.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            Your browser does not support the video tag
           </video>
         </div>
       </div>
@@ -288,7 +289,7 @@ export default function Home() {
             style={{ height: "200px", objectFit: "cover" }}
           >
             <source src="https://cdn.pixabay.com/video/2019/02/19/21528-318978038_tiny.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            Your browser does not support the video tag
           </video>
         </div>
       </div>
@@ -316,7 +317,7 @@ export default function Home() {
       style={{ height: "180px", objectFit: "cover" }}
     >
       <source src="https://cdn.pixabay.com/video/2025/06/09/284566_tiny.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
+      Your browser does not support the video tag
     </video>
     
     {/* Overlay Text */}
@@ -332,7 +333,7 @@ export default function Home() {
   
   {/* Footer Description with Arrow */}
   <div className="p-3 bg-light d-flex justify-content-between align-items-center">
-    <p className="small mb-0">"The best stories come from unplanned detours  stories come from unplanned detours stories come from unplanned detours"</p>
+    <p className="small mb-0">The best stories come from unplanned detours  stories come from unplanned detours stories come from unplanned detours</p>
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
       <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
     </svg>

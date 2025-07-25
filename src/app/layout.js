@@ -1,5 +1,6 @@
 import './globals.css';
 import { Inter, Playfair_Display } from 'next/font/google';
+import Script from 'next/script';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
-        {/* Bootstrap */}
+        {/* Bootstrap CSS */}
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -36,9 +37,16 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
       </head>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        {children}
+
+        {/* Bootstrap JS - Move outside <head> */}
+        <Script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }
