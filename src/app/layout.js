@@ -1,18 +1,20 @@
 import './globals.css';
-import { Inter, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
+import { Nunito_Sans, Merriweather } from 'next/font/google';
 
-const inter = Inter({
+const nunito = Nunito_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-inter',
+  weight: ['400', '600', '700'],
+  variable: '--font-sans',
+  display: 'swap',
 });
 
-const playfair = Playfair_Display({
+const merriweather = Merriweather({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-playfair',
+  weight: ['400', '700'],
   style: ['normal', 'italic'],
+  variable: '--font-serif',
+  display: 'swap',
 });
 
 export const metadata = {
@@ -22,7 +24,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${nunito.variable} ${merriweather.variable}`}>
       <head>
         {/* Bootstrap CSS */}
         <link
@@ -41,7 +43,7 @@ export default function RootLayout({ children }) {
       <body className="font-sans">
         {children}
 
-        {/* Bootstrap JS - Move outside <head> */}
+        {/* Bootstrap JS */}
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
           strategy="afterInteractive"
