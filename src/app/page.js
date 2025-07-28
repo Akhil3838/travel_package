@@ -20,163 +20,157 @@ export default function Home() {
   </small>
 
   {/* Group Travel Section */}
-<div className="p-3 rounded-4 mt-2  bg-white border border-light">
-  <h6 className="fw-semibold text-dark mb-3"> Group Travel</h6>
-  <div className="d-flex gap-2">
-    <button className="btn btn-dark w-50 rounded-pill py-2 shadow-sm">Book</button>
-    <button className="btn btn-outline-dark w-50 rounded-pill py-2 shadow-sm">College</button>
+  <div className="p-3 rounded-4 mt-2 bg-white border border-light">
+    <h6 className="fw-semibold text-dark mb-3">Group Travel</h6>
+    <div className="d-flex gap-2">
+      <button className="btn btn-dark w-50 rounded-pill py-2 shadow-sm">Book</button>
+      <button className="btn btn-outline-dark w-50 rounded-pill py-2 shadow-sm">College</button>
+    </div>
   </div>
-</div>
 
-  {/* Carousel for Travel Video and Food Image */}
+  {/* Carousel for Travel Video with fixed height */}
 <div id="mediaCarousel" className="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="3000">
-  <div className="carousel-inner rounded-3" style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
-    
+  <div
+    className="carousel-inner rounded-3"
+    style={{
+      minHeight: "30vh",
+      height: "100%",
+      boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+    }}
+  >
     {/* Travel Video Slide 1 */}
-    <div className="carousel-item active">
-      <div className="position-relative overflow-hidden" style={{ height: "200px" }}>
+    <div className="carousel-item active" style={{ height: "100%" }}>
+      <div className="position-relative h-100 overflow-hidden">
         <video
           className="w-100 h-100"
           muted
           loop
           autoPlay
           playsInline
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          style={{
+            objectFit: "cover",
+            minHeight: "30vh"
+          }}
         >
-          <source src="https://cdn.pixabay.com/video/2025/05/06/277097_tiny.mp4" type="video/mp4" />
+          <source
+            src="https://cdn.pixabay.com/video/2025/05/06/277097_tiny.mp4"
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
-        <div className="position-absolute bottom-0 start-0 end-0 p-3 text-white" 
-             style={{ 
-               background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
-               backdropFilter: "blur(2px)"
-             }}>
+        <div
+          className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
+          style={{
+            background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+            backdropFilter: "blur(2px)"
+          }}
+        >
           <h6 className="mb-0 fw-bold">Adventure Awaits</h6>
           <p className="small mb-0 opacity-75">Explore the Unknown</p>
         </div>
       </div>
     </div>
-    
+
     {/* Travel Video Slide 2 */}
-    <div className="carousel-item">
-      <div className="position-relative overflow-hidden" style={{ height: "200px" }}>
+    <div className="carousel-item" style={{ height: "100%" }}>
+      <div className="position-relative h-100 overflow-hidden">
         <video
           className="w-100 h-100"
           muted
           loop
           autoPlay
           playsInline
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          style={{
+            objectFit: "cover",
+            minHeight: "30vh"
+          }}
         >
-          <source src="https://cdn.pixabay.com/video/2019/02/19/21528-318978038_tiny.mp4" type="video/mp4" />
-          Your browser does not support the video tag
+          <source
+            src="https://cdn.pixabay.com/video/2019/02/19/21528-318978038_tiny.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
         </video>
-        <div className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
-             style={{ 
-               background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
-               backdropFilter: "blur(2px)"
-             }}>
+        <div
+          className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
+          style={{
+            background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+            backdropFilter: "blur(2px)"
+          }}
+        >
           <h6 className="mb-0 fw-bold">Wander Often</h6>
           <p className="small mb-0 opacity-75">Wonder Always</p>
         </div>
       </div>
     </div>
   </div>
-
-  {/* Custom Indicators */}
-  {/* <div className="carousel-indicators position-static mt-2">
-    <button 
-      type="button" 
-      data-bs-target="#mediaCarousel" 
-      data-bs-slide-to="0" 
-      className="active bg-dark" 
-      style={{ width: "8px", height: "8px", borderRadius: "50%" }}
-      aria-current="true"
-    ></button>
-    <button 
-      type="button" 
-      data-bs-target="#mediaCarousel" 
-      data-bs-slide-to="1" 
-      className="bg-dark" 
-      style={{ width: "8px", height: "8px", borderRadius: "50%" }}
-    ></button>
-  </div>
- */}
-  {/* Optional Carousel Controls */}
-  {/* <button className="carousel-control-prev" type="button" data-bs-target="#mediaCarousel" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon"></span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#mediaCarousel" data-bs-slide="next">
-    <span className="carousel-control-next-icon"></span>
-  </button> */}
 </div>
-<div id="foodCarousel" className="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="3000">
-  <div className="carousel-inner rounded-3" style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
-    
-    {/* Slide 1 */}
-    <div className="carousel-item active">
-      <div className="position-relative overflow-hidden" style={{ height: "200px" }}>
-        <Image
-          src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
-          alt="Gourmet Dish"
-          fill
-          className="w-100 h-100"
-          style={{ objectFit: "cover", objectPosition: "center" }}
-        />
-        <div className="position-absolute bottom-0 start-0 end-0 p-3 text-white" 
-             style={{ 
-               background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
-               backdropFilter: "blur(2px)"
-             }}>
-          <h6 className="mb-0 fw-bold">Artisan Cuisine</h6>
-          <p className="small mb-0 opacity-75">Modern presentation with traditional flavors</p>
+
+  {/* Carousel for Food Images with fixed height */}
+  <div id="foodCarousel" className="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="3000">
+    <div className="carousel-inner rounded-3" style={{ height: "220px",  minHeight: "30vh", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
+      {/* Slide 1 */}
+      <div className="carousel-item active h-100">
+        <div className="position-relative h-100 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
+            alt="Gourmet Dish"
+            className="w-100 h-100"
+            style={{ objectFit: "cover", minHeight: "30vh" }}
+          />
+          <div className="position-absolute bottom-0 start-0 end-0 p-3 text-white" 
+               style={{ 
+                 background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+                 backdropFilter: "blur(2px)"
+               }}>
+            <h6 className="mb-0 fw-bold">Artisan Cuisine</h6>
+            <p className="small mb-0 opacity-75">Modern presentation with traditional flavors</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Slide 2 */}
+      <div className="carousel-item h-100">
+        <div className="position-relative h-100 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38"
+            alt="Pizza"
+            className="w-100 h-100"
+            style={{ objectFit: "cover", minHeight: "30vh" }}
+          />
+          <div className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
+               style={{ 
+                 background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+                 backdropFilter: "blur(2px)"
+               }}>
+            <h6 className="mb-0 fw-bold">Wood-Fired Pizza</h6>
+            <p className="small mb-0 opacity-75">Authentic Italian recipe</p>
+          </div>
         </div>
       </div>
     </div>
 
-    {/* Slide 2 */}
-    <div className="carousel-item">
-      <div className="position-relative overflow-hidden" style={{ height: "200px" }}>
-        <Image
-          src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38"
-          alt="Pizza"
-          fill
-          className="w-100 h-100"
-          style={{ objectFit: "cover", objectPosition: "center" }}
-        />
-        <div className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
-             style={{ 
-               background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
-               backdropFilter: "blur(2px)"
-             }}>
-          <h6 className="mb-0 fw-bold">Wood-Fired Pizza</h6>
-          <p className="small mb-0 opacity-75">Authentic Italian recipe</p>
-        </div>
-      </div>
+    {/* Custom Indicators */}
+    <div className="carousel-indicators position-static mt-2">
+      <button 
+        type="button" 
+        data-bs-target="#foodCarousel" 
+        data-bs-slide-to="0" 
+        className="active bg-dark" 
+        style={{ width: "8px", height: "8px", borderRadius: "50%" }}
+        aria-current="true"
+      ></button>
+      <button 
+        type="button" 
+        data-bs-target="#foodCarousel" 
+        data-bs-slide-to="1" 
+        className="bg-dark" 
+        style={{ width: "8px", height: "8px", borderRadius: "50%" }}
+      ></button>
     </div>
   </div>
-
-  {/* Custom Indicators */}
-  <div className="carousel-indicators position-static mt-2">
-    <button 
-      type="button" 
-      data-bs-target="#foodCarousel" 
-      data-bs-slide-to="0" 
-      className="active bg-dark" 
-      style={{ width: "8px", height: "8px", borderRadius: "50%" }}
-      aria-current="true"
-    ></button>
-    <button 
-      type="button" 
-      data-bs-target="#foodCarousel" 
-      data-bs-slide-to="1" 
-      className="bg-dark" 
-      style={{ width: "8px", height: "8px", borderRadius: "50%" }}
-    ></button>
-  </div>
-</div></div>
-
-          {/* Center - Main Image */}
+</div>  
+        {/* Center - Main Image */}
 <div className="col-md-6 position-relative text-center d-flex align-items-center justify-content-center p-0 overflow-hidden">
   {/* Curved White Header - Top Center */}
   <div
@@ -211,7 +205,7 @@ export default function Home() {
       muted
       playsInline
       className="w-100 h-100 object-fit-cover rounded-4"
-      style={{ maxHeight: '90vh' }}
+      style={{ maxHeight: '95vh' }}
     />
     <div
       className="position-absolute top-0 start-0 w-100 h-100 rounded-4"
@@ -263,7 +257,7 @@ export default function Home() {
             loop
             autoPlay
             playsInline
-            style={{ height: "200px", objectFit: "cover" }}
+            style={{ height: "200px", objectFit: "cover", minHeight: "30vh" }}
           >
             <source src="https://cdn.pixabay.com/video/2024/12/03/244754_tiny.mp4" type="video/mp4" />
             Your browser does not support the video tag
@@ -286,7 +280,7 @@ export default function Home() {
             loop
             autoPlay
             playsInline
-            style={{ height: "200px", objectFit: "cover" }}
+            style={{ height: "200px", objectFit: "cover", minHeight: "30vh" }}
           >
             <source src="https://cdn.pixabay.com/video/2019/02/19/21528-318978038_tiny.mp4" type="video/mp4" />
             Your browser does not support the video tag
@@ -314,7 +308,7 @@ export default function Home() {
       loop
       autoPlay
       playsInline
-      style={{ height: "180px", objectFit: "cover" }}
+      style={{ height: "180px", objectFit: "cover", minHeight: "30vh" }}
     >
       <source src="https://cdn.pixabay.com/video/2025/06/09/284566_tiny.mp4" type="video/mp4" />
       Your browser does not support the video tag
