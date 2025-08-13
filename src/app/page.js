@@ -1,9 +1,29 @@
 'use client'
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import TrendingPkg from "@/components/TrendingPkg";
+import { getCategories } from "@/services/allApi";
+import PopularPackages from "@/components/PopularPackages";
 
 export default function Home() {
+
+    const [categories, setCategories] = useState([]);
+  
+    const getCategory = async () => {
+      try {
+        const result = await getCategories();
+        setCategories(result?.data?.categories || []);
+      } catch (error) {
+        console.error('Error fetching packages:', error);
+      }
+    };
+  
+    useEffect(() => {
+      getCategory();
+    }, []);
+  console.log(categories);
+  
  
 
   return (
@@ -186,13 +206,13 @@ export default function Home() {
                 }}
               >
                 <span className="fw-bold border  border-black rounded-pill p-1 px-3 small">
-                  Beach Getaways
+                  {categories[0]?.title}
                 </span>
                 <span className="fw-bold border  border-black rounded-pill p-1 px-3 small">
-                  Mountain Treks
+                  {categories[1]?.title}
                 </span>
                 <span className="fw-bold border  border-black rounded-pill p-1 px-3 small">
-                  Cultural Tours
+                  {categories[2]?.title}
                 </span>
               </div>
   
@@ -334,415 +354,13 @@ export default function Home() {
   
         {/* Trending Locations Section */}
   <section className="trending-locations py-5">
-    <div className="container">
-      <h2 className="display-5 text-dark fw-bold mb-3  text-center">Trending Destinations</h2>
-      <p className="lead  text-dark text-center">Explore the most popular travel spots this season</p>
-      
-  <div id="locationsCarousel" className="carousel trending-carousel slide"> {/* Removed data-bs-ride="carousel" */}
-    <div className="carousel-inner">        {/* Slide 1 - Active (contains 4 cards) */}
-          <div className="carousel-item active">
-            <div className="row g-4">
-              {/* Card 1 */}
-              <div className="col-md-6 col-lg-3">
-                <div className="location-card">
-                  <div className="location-image-container">
-                    <img 
-                      src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                      alt="Paris" 
-                      className="location-image"
-                    />
-                    <div className="location-badge">30% OFF</div>
-                  </div>
-                  <div className="location-info p-3">
-                    <h3 className="location-name">Paris, France</h3>
-                    <div className="location-meta d-flex justify-content-between align-items-center">
-                      <span className="location-price">From ₹799</span>
-                      <span className="location-rating">⭐ 4.8</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Card 2 */}
-              <div className="col-md-6 col-lg-3">
-                <div className="location-card">
-                  <div className="location-image-container">
-                    <img 
-                      src="https://media.timeout.com/images/106182485/750/562/image.jpg" 
-                      alt="Bali" 
-                      className="location-image"
-                    />
-                    <div className="location-badge">Early Bird</div>
-                  </div>
-                  <div className="location-info p-3">
-                    <h3 className="location-name">Bali, Indonesia</h3>
-                    <div className="location-meta d-flex justify-content-between align-items-center">
-                      <span className="location-price">From ₹649</span>
-                      <span className="location-rating">⭐ 4.9</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Card 3 */}
-              <div className="col-md-6 col-lg-3">
-                <div className="location-card">
-                  <div className="location-image-container">
-                    <img 
-                      src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                      alt="Tokyo" 
-                      className="location-image"
-                    />
-                  </div>
-                  <div className="location-info p-3">
-                    <h3 className="location-name">Tokyo, Japan</h3>
-                    <div className="location-meta d-flex justify-content-between align-items-center">
-                      <span className="location-price">From ₹1099</span>
-                      <span className="location-rating">⭐ 4.7</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Card 4 */}
-              <div className="col-md-6 col-lg-3">
-                <div className="location-card">
-                  <div className="location-image-container">
-                    <img 
-                      src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                      alt="Maldives" 
-                      className="location-image"
-                    />
-                    <div className="location-badge">Popular</div>
-                  </div>
-                  <div className="location-info p-3">
-                    <h3 className="location-name">Maldives</h3>
-                    <div className="location-meta d-flex justify-content-between align-items-center">
-                      <span className="location-price">From ₹1299</span>
-                      <span className="location-rating">⭐ 4.9</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Slide 2 (you would duplicate the above structure with 4 different cards) */}
-          <div className="carousel-item">
-            <div className="row g-4">
-              {/* Card 5 */}
-              <div className="col-md-6 col-lg-3">
-                <div className="location-card">
-                  <div className="location-image-container">
-                    <img 
-                      src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                      alt="New York" 
-                      className="location-image"
-                    />
-                    <div className="location-badge">Special</div>
-                  </div>
-                  <div className="location-info p-3">
-                    <h3 className="location-name">New York, USA</h3>
-                    <div className="location-meta d-flex justify-content-between align-items-center">
-                      <span className="location-price">From ₹1499</span>
-                      <span className="location-rating">⭐ 4.8</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Card 6 */}
-              <div className="col-md-6 col-lg-3">
-                <div className="location-card">
-                  <div className="location-image-container">
-                    <img 
-                      src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                      alt="Rome" 
-                      className="location-image"
-                    />
-                    <div className="location-badge">Limited</div>
-                  </div>
-                  <div className="location-info p-3">
-                    <h3 className="location-name">Rome, Italy</h3>
-                    <div className="location-meta d-flex justify-content-between align-items-center">
-                      <span className="location-price">From ₹899</span>
-                      <span className="location-rating">⭐ 4.9</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Card 7 */}
-              <div className="col-md-6 col-lg-3">
-                <div className="location-card">
-                  <div className="location-image-container">
-                    <img 
-                      src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                      alt="Sydney" 
-                      className="location-image"
-                    />
-                  </div>
-                  <div className="location-info p-3">
-                    <h3 className="location-name">Sydney, Australia</h3>
-                    <div className="location-meta d-flex justify-content-between align-items-center">
-                      <span className="location-price">From ₹1199</span>
-                      <span className="location-rating">⭐ 4.7</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Card 8 */}
-              <div className="col-md-6 col-lg-3">
-                <div className="location-card">
-                  <div className="location-image-container">
-                    <img 
-                      src="https://images.unsplash.com/photo-1535463731090-e34f4b5098c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                      alt="Dubai" 
-                      className="location-image"
-                    />
-                    <div className="location-badge">Luxury</div>
-                  </div>
-                  <div className="location-info p-3">
-                    <h3 className="location-name">Dubai, UAE</h3>
-                    <div className="location-meta d-flex justify-content-between align-items-center">
-                      <span className="location-price">From ₹1599</span>
-                      <span className="location-rating">⭐ 4.9</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Carousel Controls */}
-        <button className="carousel-control-prev" type="button" data-bs-target="#locationsCarousel" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#locationsCarousel" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-        
-        {/* Carousel Indicators */}
-        <div className="carousel-indicators">
-          <button type="button" data-bs-target="#locationsCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#locationsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-      </div>
-      
-<Link href={'/packages'} style={{textDecoration:'none'}}>
-        <div className="text-center mt-4">
-          <button className="btn  view-all-btn px-4 py-2 d-flex align-items-center justify-content-center">
-            <span >View All Destinations</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-    
-              className="bi bi-arrow-right ms-2"
-              viewBox="0 0 16 16"
-            >
-              <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-4.147-4.146a.5.5 0 1 1 .708-.708l5 5a.5.5 0 0 1 0 .708l-5 5a.5.5 0 1 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-            </svg>
-          </button>
-        </div>
-  
-</Link>  
-  </div>
+    <TrendingPkg/>
   </section>
   {/* hot selling packages */}
   
   {/* Standard Hot Selling Packages - Mobile Optimized */}
 <section className="standard-packages py-5 bg-light">
-    <div className="container px-4">
-      <div className="section-header text-center mb-5">
-        <h2 className="display-5 fw-bold mb-3">Popular Travel Packages</h2>
-        <p className='text-muted fs-5'>Curated experiences loved by travelers worldwide</p>
-      </div>
-  
-      <div className="row g-4 pb-4 scroll-hide" style={{scrollSnapType: 'x mandatory', overflowX: 'auto', flexWrap: 'nowrap'}}>
-        {/* Package 1 */}
-        <div className="col-11 col-md-6 col-lg-4 flex-shrink-0" style={{scrollSnapAlign: 'start'}}>
-          <div className="package-card h-100 border-0 shadow-sm overflow-hidden rounded-4">
-            <div className="package-img-container position-relative">
-              <img 
-                src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                alt="Bali Package" 
-                className="img-fluid w-100"
-                style={{height: '220px', objectFit: 'cover'}}
-              />
-              <div className="package-tag bg-dark text-white position-absolute top-3 end-3 px-3 py-1 rounded-pill small fw-bold">BESTSELLER</div>
-            </div>
-            <div className="package-body p-4">
-              <div className="d-flex justify-content-between align-items-center mb-3">
-                <span className="badge bg-info bg-opacity-10 text-info">7 Days</span>
-                <div className="d-flex align-items-center">
-                  <i className="fas fa-star text-warning me-1 small"></i>
-                  <span className="small">4.8 (243)</span>
-                </div>
-              </div>
-              <h3 className="h5 fw-bold mb-2">Bali Premium Vacation</h3>
-              <p className="text-muted mb-3">Private villa with pool & daily spa treatments</p>
-              
-              <div className="package-details mb-4">
-                <div className="d-flex align-items-center mb-2">
-                  <i className="fas fa-plane text-dark me-2"></i>
-                  <span className="small">Flight Included</span>
-                </div>
-                <div className="d-flex align-items-center mb-2">
-                  <i className="fas fa-hotel text-dark me-2"></i>
-                  <span className="small">5★ Accommodation</span>
-                </div>
-                <div className="d-flex align-items-center">
-                  <i className="fas fa-utensils text-dark me-2"></i>
-                  <span className="small">Breakfast Included</span>
-                </div>
-              </div>
-              
-              <div className="d-flex justify-content-between align-items-center pt-3 border-top">
-                <div>
-                  <span className="text-decoration-line-through text-muted me-2 small">$1,499</span>
-                  <span className="h5 fw-bold text-dark">$1,099</span>
-                  {/* <span className="badge bg-danger bg-opacity-10 text-danger ms-2 small">Save 27%</span> */}
-                </div>
-                <button className="btn btn-dark rounded-pill px-3 py-2 ">
-                  <span className="small fw-bold">Book Now</span>
-                  <i className="fas fa-arrow-right ms-2 small"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-  
-        {/* Package 2 */}
-        <div className="col-11 col-md-6 col-lg-4 flex-shrink-0" style={{scrollSnapAlign: 'start'}}>
-          <div className="package-card h-100 border-0 shadow-sm overflow-hidden rounded-4">
-            <div className="package-img-container position-relative">
-              <img 
-                src="https://images.unsplash.com/photo-1535406208535-1429839cfd13?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                alt="Maldives Package" 
-                className="img-fluid w-100"
-                style={{height: '220px', objectFit: 'cover'}}
-              />
-              <div className="package-tag bg-success text-white position-absolute top-3 end-3 px-3 py-1 rounded-pill small fw-bold">LUXURY</div>
-            </div>
-            <div className="package-body p-4">
-              <div className="d-flex justify-content-between align-items-center mb-3">
-                <span className="badge bg-info bg-opacity-10 text-info">5 Days</span>
-                <div className="d-flex align-items-center">
-                  <i className="fas fa-star text-warning me-1 small"></i>
-                  <span className="small">4.9 (187)</span>
-                </div>
-              </div>
-              <h3 className="h5 fw-bold mb-2">Maldives Paradise</h3>
-              <p className="text-muted mb-3">Overwater bungalow with private beach access</p>
-              
-              <div className="package-details mb-4">
-                <div className="d-flex align-items-center mb-2">
-                  <i className="fas fa-plane text-dark me-2"></i>
-                  <span className="small">Flight Included</span>
-                </div>
-                <div className="d-flex align-items-center mb-2">
-                  <i className="fas fa-hotel text-dark me-2"></i>
-                  <span className="small">5★ Resort</span>
-                </div>
-                <div className="d-flex align-items-center">
-                  <i className="fas fa-utensils text-dark me-2"></i>
-                  <span className="small">All Inclusive</span>
-                </div>
-              </div>
-              
-              <div className="d-flex justify-content-between align-items-center pt-3 border-top">
-                <div>
-                  <span className="text-decoration-line-through text-muted me-2 small">$2,299</span>
-                  <span className="h5 fw-bold text-dark">$1,799</span>
-                  {/* <span className="badge bg-danger bg-opacity-10 text-danger ms-2 small">Save 22%</span> */}
-                </div>
-                <button className="btn btn-dark rounded-pill px-3 py-2">
-                  <span className="small fw-bold">Book Now</span>
-                  <i className="fas fa-arrow-right ms-2 small"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-  
-        {/* Package 3 */}
-        <div className="col-11 col-md-6 col-lg-4 flex-shrink-0" style={{scrollSnapAlign: 'start'}}>
-          <div className="package-card h-100 border-0 shadow-sm overflow-hidden rounded-4">
-            <div className="package-img-container position-relative">
-              <img 
-                src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                alt="Japan Package" 
-                className="img-fluid w-100"
-                style={{height: '220px', objectFit: 'cover'}}
-              />
-              <div className="package-tag bg-warning text-dark position-absolute top-3 end-3 px-3 py-1 rounded-pill small fw-bold">SEASONAL</div>
-            </div>
-            <div className="package-body p-4">
-              <div className="d-flex justify-content-between align-items-center mb-3">
-                <span className="badge bg-info bg-opacity-10 text-info">10 Days</span>
-                <div className="d-flex align-items-center">
-                  <i className="fas fa-star text-warning me-1 small"></i>
-                  <span className="small">4.7 (156)</span>
-                </div>
-              </div>
-              <h3 className="h5 fw-bold mb-2">Japan Cherry Blossom Tour</h3>
-              <p className="text-muted mb-3">Tokyo, Kyoto, Osaka with sakura viewing</p>
-              
-              <div className="package-details mb-4">
-                <div className="d-flex align-items-center mb-2">
-                  <i className="fas fa-plane text-dark me-2"></i>
-                  <span className="small">Flight Included</span>
-                </div>
-                <div className="d-flex align-items-center mb-2">
-                  <i className="fas fa-hotel text-dark me-2"></i>
-                  <span className="small">4★ Hotels</span>
-                </div>
-                <div className="d-flex align-items-center">
-                  <i className="fas fa-train text-dark me-2"></i>
-                  <span className="small">Bullet Train Pass</span>
-                </div>
-              </div>
-              
-              <div className="d-flex justify-content-between align-items-center pt-3 border-top">
-                <div>
-                  <span className="h5 fw-bold text-dark">$2,499</span>
-                </div>
-                <button className="btn btn-dark rounded-pill px-3 py-2">
-                  <span className="small fw-bold">Book Now</span>
-                  <i className="fas fa-arrow-right ms-2 small"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-<Link href={'/packages'} style={{textDecoration:'none'}}>
-        <div className="text-center mt-4">
-          <button className="btn  view-all-btn px-4 py-2 d-flex align-items-center justify-content-center">
-            <span >View All Destinations</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-    
-              className="bi bi-arrow-right ms-2"
-              viewBox="0 0 16 16"
-            >
-              <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-4.147-4.146a.5.5 0 1 1 .708-.708l5 5a.5.5 0 0 1 0 .708l-5 5a.5.5 0 1 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-            </svg>
-          </button>
-        </div>
-  
-</Link>  
-    </div>
+  <PopularPackages/>
 </section>  
 </div>     
 <footer className="bg-dark text-white pt-5 pb-4">
