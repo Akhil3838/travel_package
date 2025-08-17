@@ -44,13 +44,8 @@ console.log(formData);
   };
 
   return (
-    <div className="col-lg-4">
-      <div className="sticky-top" style={{ top: '20px' }}>
-        <div className="card border-0 shadow-sm mb-2 p-3">
-          <div className="card-body">
-            <h4 className="fw-bold mb-3">Enquiry Form</h4>
-
-            <form onSubmit={handleSubmit}>
+    <>
+                <form onSubmit={handleSubmit}>
               {/* Name */}
               <div className="mb-3">
                 <label className="form-label">Name:</label>
@@ -170,10 +165,9 @@ console.log(formData);
               </button>
             </form>
 
-          </div>
-        </div>
-      </div>
-    </div>
+
+    </>
+   
   );
 }
 

@@ -67,4 +67,12 @@ export const getNewPkg=async()=>{
     return await commonApi('GET',`${serverUrl}/get-newpackages`,"","")
 }
 
+//search packages
+export const searchPackageApi =async(search)=>{
+    return await commonApi('GET',`${serverUrl}/search-package?search=${search}`,"","")
+}
 
+export const searchAi = async (reqBody) => {
+  const res = await commonApi("POST", `${serverUrl}/search-travel`, reqBody, "");
+  return res.data; // ✅ only return the payload
+};

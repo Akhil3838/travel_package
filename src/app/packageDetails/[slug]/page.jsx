@@ -156,19 +156,30 @@ const PackageDetails = () => {
                   </>
                 )}
               </div>
-              {details.packimages?.length > 3 && (
-                <div className="d-flex mt-3 gap-2">
-                  {details.packimages.slice(0, 6).map((image, index) => (
-                    <img 
-                      key={index}
-                      src={image.image} 
-                      alt={`Tour ${index + 1}`} 
-                      className="img-fluid rounded-3" 
-                      style={{ width: "120px", height: "80px", objectFit: "cover" }}
-                    />
-                  ))}
-                </div>
-              )}
+{details.packimages?.length > 0 && (
+  <div className="d-flex mt-3 gap-2 flex-wrap">
+    {details.packimages.slice(0, 6).map((image, index) => (
+      <img 
+        key={index}
+        src={image.image} 
+        alt={`Tour ${index + 1}`} 
+        className="img-fluid rounded-3 d-none d-sm-block" // hide on xs
+        style={{ width: "120px", height: "80px", objectFit: "cover" }}
+      />
+    ))}
+
+    {/* Show only 3 on mobile (xs) */}
+    {details.packimages.slice(0, 3).map((image, index) => (
+      <img 
+        key={`mobile-${index}`}
+        src={image.image} 
+        alt={`Tour Mobile ${index + 1}`} 
+        className="img-fluid rounded-3 d-block d-sm-none" // visible only on xs
+        style={{ width: "120px", height: "80px", objectFit: "cover" }}
+      />
+    ))}
+  </div>
+)}
             </div>
 
             {/* Overview */}
@@ -297,7 +308,20 @@ const PackageDetails = () => {
           </div>
 
           {/* Right Column - Booking Widget */}
+
+              <div className="col-lg-4">
+      <div className="sticky-top" style={{ top: '20px' }}>
+        <div className="card border-0 shadow-sm mb-2 p-3">
+          <div className="card-body">
+            <h4 className="fw-bold mb-3">Enquiry Form</h4>
+
           <EnqueryForm packageId={details?.id}/>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
         </div>
       </div>
 

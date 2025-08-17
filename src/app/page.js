@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import TrendingPkg from "@/components/TrendingPkg";
 import { getCategories } from "@/services/allApi";
 import PopularPackages from "@/components/PopularPackages";
+import SearchPackage from "@/components/SearchPackage";
+import AiSearchbar from "@/components/AiSearchbar";
 
 export default function Home() {
 
@@ -238,31 +240,7 @@ export default function Home() {
             {/* Right Column - Highlights */}
             <div className="col-md-3 right-column">
               {/* Search and Profile */}
-              <div className="d-flex align-items-center justify-content-between ms-auto px-3 py-2 animate-on-load" style={{ maxWidth: '100%' }}>
-                {/* Search Group */}
-                <div className="d-flex align-items-center position-relative me-1">
-                  <svg className="position-absolute ms-2" width="20" height="20" fill="#888" viewBox="0 0 24 24" style={{ top: '50%', transform: 'translateY(-50%)' }}>
-                    <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
-                  </svg>
-                  <input
-                    type="search"
-                    className="form-control ps-5"
-                    placeholder="Search"
-                    style={{ width: '250px', height: '38px' }}
-                  />
-                </div>
-  
-                {/* Profile Avatar */}
-                <div className="profile-container d-flex align-items-center">
-                  <div className="profile-avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style={{ width: '38px', height: '38px' }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                      <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-  
+              <SearchPackage/>
               <div id="mediaCarousel" className="carousel slide mt-4 animate-on-load " data-bs-ride="carousel" data-bs-interval="3000">
                 <div className="carousel-inner">
                   {/* Travel Video Slide 1 */}
@@ -362,7 +340,11 @@ export default function Home() {
 <section className="standard-packages py-5 bg-light">
   <PopularPackages/>
 </section>  
-</div>     
+
+
+</div> 
+  <AiSearchbar/>
+
 <footer className="bg-dark text-white pt-5 pb-4">
 
   <div className="container">
@@ -461,6 +443,7 @@ export default function Home() {
       </div>
     </div>
   </div>
+
 </footer>
 
     </>
