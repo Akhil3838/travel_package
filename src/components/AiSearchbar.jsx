@@ -1,106 +1,231 @@
 "use client"; // if using Next.js App Router
 
 import { searchAi } from "@/services/allApi";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import ReactMarkdown from "react-markdown"; // ✅ import for markdown rendering
 
 function TravelSearchBar() {
-  const [formData, setFormData] = useState({ query: "" });
+  const [formData, setFormData] = useState({
+    start_location: "",
+    destination: "",
+    nationality: "",
+    start_date: "",
+    end_date: "",
+    cuisine_preference: "",
+    interests: "",
+    stay_type: "Quality",
+    additional_data: "",
+  });
+
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState("");
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!formData.query.trim()) return;
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-  setLoading(true);
-  setResult("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setResult("");
 
-  try {
-    console.log("Query:", formData);
+    try {
+      console.log("Form Data:", formData);
+      const data = await searchAi(formData);
+      console.log("AI Response:", data);
 
-const data = await searchAi(formData);
-console.log("AI Response:", data);
+      const content = data?.travel_plan || data?.citations || "";
+      setResult(content || "No suggestions found.");
+    } catch (error) {
+      console.error("Error:", error);
+      setResult("Something went wrong. Try again later.");
+    }
 
-const content =
-  data?.choices?.[0]?.message?.content ||
-  data?.choices?.[0]?.delta?.content ||
-  "";
-
-setResult(content || "No suggestions found.");
-  } catch (error) {
-    console.error("Error:", error);
-    setResult("Something went wrong. Try again later.");
-  }
-
-  setLoading(false);
-};
-
-  const clearInput = () => setFormData({ query: "" });
-
-  // Optional: watch result changes
-  useEffect(() => {
-    if (result) console.log("Updated result:", result);
-  }, [result]);
+    setLoading(false);
+  };
 
   return (
-    <div className="container my-5 py-4">
-      <div className="text-center mb-4">
-        <h1 className="display-5 fw-bold text-dark mb-3">WanderAI</h1>
-        <p className="lead text-dark">
-          Your smart travel assistant - find perfect destinations, hotels, and
-          experiences
-        </p>
-      </div>
+    <div className="container my-5 p-4 rounded shadow bg-light">
+      {/* Title */}
+      <h2
+        className="text-center mb-4 fw-bold"
+        style={{
+          color: "#2c3e50",
+          fontSize: "2.2rem",
+          letterSpacing: "1px",
+        }}
+      >
+        ✈️ <span style={{ color: "#27ae60" }}>Aasi</span>
+        <span style={{ color: "#e67e22" }}>backpackers</span>
+      </h2>
+      <p className="text-center text-muted mb-5" style={{ fontSize: "1.1rem" }}>
+        Discover. Explore. Experience. – Plan Your Next Adventure With Us 🌍
+      </p>
 
-      <div className="row justify-content-center">
-        <div className="col-12 col-md-10 col-lg-8">
-          <form onSubmit={handleSubmit}>
-            <div className="input-group input-group-lg shadow-lg rounded-pill overflow-hidden bg-white text-dark bg-opacity-25">
-              <span className="input-group-text border-0">
-                <i className="fa-solid fa-location-dot text-warning"></i>
-              </span>
-              <input
-                type="text"
-                className="form-control border-0 py-3 px-2 bg-transparent text-dark"
-                value={formData.query}
-                onChange={(e) =>
-                  setFormData({ ...formData, query: e.target.value })
-                }
-                placeholder="Where would you like to go next?"
-                aria-label="Travel destination search"
-                style={{ backdropFilter: "blur(5px)" }}
-              />
-
-              {formData.query && (
-                <button
-                  type="button"
-                  className="btn btn-link text-dark position-absolute end-0 top-50 translate-middle-y me-5"
-                  onClick={clearInput}
-                  style={{ zIndex: 5 }}
-                >
-                  <i className="fa-solid fa-xmark fs-4"></i>
-                </button>
-              )}
-
-              <button className="btn btn-warning px-4 text-dark" type="submit">
-                {loading ? (
-                  <span className="spinner-border spinner-border-sm"></span>
-                ) : (
-                  <i className="fa-solid fa-magnifying-glass fs-5"></i>
-                )}
-              </button>
-            </div>
-          </form>
-
-          {/* AI Result */}
-          {result && (
-            <div className="mt-4 p-3 border rounded bg-light text-dark shadow-sm">
-              <h5>Suggestions:</h5>
-              <p>{result}</p>
-            </div>
-          )}
+      {/* Form */}
+      <form onSubmit={handleSubmit} className="row g-3">
+        {/* Start Location */}
+        <div className="col-md-6">
+          <label className="form-label">Start Location</label>
+          <input
+            type="text"
+            name="start_location"
+            className="form-control"
+            value={formData.start_location}
+            onChange={handleChange}
+          />
         </div>
-      </div>
+
+        {/* Destination */}
+        <div className="col-md-6">
+          <label className="form-label">Destination</label>
+          <input
+            type="text"
+            name="destination"
+            className="form-control"
+            value={formData.destination}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Nationality */}
+        <div className="col-md-6">
+          <label className="form-label">Nationality</label>
+          <input
+            type="text"
+            name="nationality"
+            className="form-control"
+            value={formData.nationality}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Cuisine Preference */}
+        <div className="col-md-6">
+          <label className="form-label">Cuisine Preference</label>
+          <input
+            type="text"
+            name="cuisine_preference"
+            className="form-control"
+            value={formData.cuisine_preference}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Dates */}
+        <div className="col-md-6">
+          <label className="form-label">Start Date</label>
+          <input
+            type="date"
+            name="start_date"
+            className="form-control"
+            value={formData.start_date}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="col-md-6">
+          <label className="form-label">End Date</label>
+          <input
+            type="date"
+            name="end_date"
+            className="form-control"
+            value={formData.end_date}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Interests */}
+        <div className="col-md-12">
+          <label className="form-label">Select Interests</label>
+          <input
+            type="text"
+            name="interests"
+            className="form-control"
+            placeholder="Cultural Tours, Adventure..."
+            value={formData.interests}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Stay Type */}
+        <div className="col-md-12">
+          <label className="form-label d-block">Stay Type</label>
+          <div className="form-check form-check-inline">
+            <input
+              type="radio"
+              name="stay_type"
+              value="Affordable"
+              checked={formData.stay_type === "Affordable"}
+              onChange={handleChange}
+              className="form-check-input"
+            />
+            <label className="form-check-label">Affordable</label>
+          </div>
+          <div className="form-check form-check-inline">
+            <input
+              type="radio"
+              name="stay_type"
+              value="Quality"
+              checked={formData.stay_type === "Quality"}
+              onChange={handleChange}
+              className="form-check-input"
+            />
+            <label className="form-check-label">Quality</label>
+          </div>
+          <div className="form-check form-check-inline">
+            <input
+              type="radio"
+              name="stay_type"
+              value="Highly Rated"
+              checked={formData.stay_type === "Highly Rated"}
+              onChange={handleChange}
+              className="form-check-input"
+            />
+            <label className="form-check-label">Highly Rated</label>
+          </div>
+        </div>
+
+        {/* Notes */}
+        <div className="col-md-12">
+          <label className="form-label">Additional Trip Details / Notes</label>
+          <textarea
+            name="additional_data"
+            className="form-control"
+            rows="3"
+            value={formData.additional_data}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Submit */}
+        <div className="col-12 text-center">
+          <button
+            type="submit"
+            className="btn btn-success px-5 py-2"
+            disabled={loading}
+          >
+            {loading ? "Generating..." : "🌍 Generate My Plan"}
+          </button>
+        </div>
+      </form>
+
+      {/* Result */}
+      {result && (
+        <div className="mt-4 p-3 border rounded bg-white shadow-sm">
+          <h5 className="text-success">📝 Your End-to-End Travel Plan</h5>
+          <div
+            className="p-4 border rounded shadow-sm bg-white"
+            style={{
+              lineHeight: "1.6",
+              fontSize: "1rem",
+              fontFamily: "Arial, sans-serif",
+            }}
+          >
+            {/* ✅ Render Markdown properly */}
+            <ReactMarkdown>{result}</ReactMarkdown>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
