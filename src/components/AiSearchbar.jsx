@@ -11,8 +11,6 @@ function TravelSearchBar() {
     nationality: "",
     start_date: "",
     end_date: "",
-    cuisine_preference: "",
-    interests: "",
     stay_type: "Quality",
     additional_data: "",
   });
@@ -100,18 +98,6 @@ function TravelSearchBar() {
           />
         </div>
 
-        {/* Cuisine Preference */}
-        <div className="col-md-6">
-          <label className="form-label">Cuisine Preference</label>
-          <input
-            type="text"
-            name="cuisine_preference"
-            className="form-control"
-            value={formData.cuisine_preference}
-            onChange={handleChange}
-          />
-        </div>
-
         {/* Dates */}
         <div className="col-md-6">
           <label className="form-label">Start Date</label>
@@ -130,19 +116,6 @@ function TravelSearchBar() {
             name="end_date"
             className="form-control"
             value={formData.end_date}
-            onChange={handleChange}
-          />
-        </div>
-
-        {/* Interests */}
-        <div className="col-md-12">
-          <label className="form-label">Select Interests</label>
-          <input
-            type="text"
-            name="interests"
-            className="form-control"
-            placeholder="Cultural Tours, Adventure..."
-            value={formData.interests}
             onChange={handleChange}
           />
         </div>
@@ -194,6 +167,7 @@ function TravelSearchBar() {
             rows="3"
             value={formData.additional_data}
             onChange={handleChange}
+            placeholder="Enter the type of cuisine you would like to have, or if you want a cultural, adventurous trip, or any other details"
           />
         </div>
 
