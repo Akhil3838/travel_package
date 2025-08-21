@@ -61,70 +61,74 @@ export default function Home() {
                 >
                   {/* Travel Video Slide 1 */}
                   <div className="carousel-item active" style={{ height: "100%" }}>
-                    <div className="position-relative h-100 overflow-hidden">
-                      <video
-                        className="w-100 h-100"
-                        muted
-                        loop
-                        autoPlay
-                        playsInline
-                        style={{
-                          objectFit: "cover",
-                          minHeight: "30vh"
-                        }}
-                      >
-                        <source
-                          src="https://cdn.pixabay.com/video/2025/05/06/277097_tiny.mp4"
-                          type="video/mp4"
-                        />
-                        Your browser does not support the video tag.
-                      </video>
-                      <div
-                        className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
-                        style={{
-                          background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
-                          backdropFilter: "blur(2px)"
-                        }}
-                      >
-                        <h6 className="mb-0 fw-bold">Adventure Awaits</h6>
-                        <p className="small mb-0 opacity-75">Explore the Unknown</p>
+<Link href="/packages" style={{ display: "block", height: "100%", textDecoration: "none" }}>
+                      <div className="position-relative h-100 overflow-hidden">
+                        <video
+                          className="w-100 h-100"
+                          muted
+                          loop
+                          autoPlay
+                          playsInline
+                          style={{
+                            objectFit: "cover",
+                            minHeight: "30vh"
+                          }}
+                        >
+                          <source
+                            src="https://cdn.pixabay.com/video/2025/05/06/277097_tiny.mp4"
+                            type="video/mp4"
+                          />
+                          Your browser does not support the video tag.
+                        </video>
+                        <div
+                          className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
+                          style={{
+                            background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+                            backdropFilter: "blur(2px)"
+                          }}
+                        >
+                          <h6 className="mb-0 fw-bold">Adventure Awaits</h6>
+                          <p className="small mb-0 opacity-75">Explore the Unknown</p>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+  
+</Link>                  </div>
   
                   {/* Travel Video Slide 2 */}
-                  <div className="carousel-item" style={{ height: "100%" }}>
-                    <div className="position-relative h-100 overflow-hidden">
-                      <video
-                        className="w-100 h-100"
-                        muted
-                        loop
-                        autoPlay
-                        playsInline
-                        style={{
-                          objectFit: "cover",
-                          minHeight: "30vh"
-                        }}
-                      >
-                        <source
-                          src="https://cdn.pixabay.com/video/2019/02/19/21528-318978038_tiny.mp4"
-                          type="video/mp4"
-                        />
-                        Your browser does not support the video tag.
-                      </video>
-                      <div
-                        className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
-                        style={{
-                          background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
-                          backdropFilter: "blur(2px)"
-                        }}
-                      >
-                        <h6 className="mb-0 fw-bold">Wander Often</h6>
-                        <p className="small mb-0 opacity-75">Wonder Always</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+<div className="carousel-item" style={{ height: "100%" }}>
+  <Link href="/packages" style={{ display: "block", height: "100%", textDecoration: "none" }}>
+    <div className="position-relative h-100 overflow-hidden">
+      <video
+        className="w-100 h-100"
+        muted
+        loop
+        autoPlay
+        playsInline
+        style={{
+          objectFit: "cover",
+          minHeight: "30vh"
+        }}
+      >
+        <source
+          src="https://cdn.pixabay.com/video/2019/02/19/21528-318978038_tiny.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+      <div
+        className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
+        style={{
+          background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+          backdropFilter: "blur(2px)"
+        }}
+      >
+        <h6 className="mb-0 fw-bold">Wander Often</h6>
+        <p className="small mb-0 opacity-75">Wonder Always</p>
+      </div>
+    </div>
+  </Link>
+</div>              
+  </div>
               </div>
   
               {/* Carousel for Food Images */}
@@ -132,43 +136,47 @@ export default function Home() {
                 <div className="carousel-inner rounded-3" style={{ height: "220px", minHeight: "30vh", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
                   {/* Slide 1 */}
                   <div className="carousel-item active h-100">
-                    <div className="position-relative h-100 overflow-hidden">
-                      <img
-                        src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
-                        alt="Gourmet Dish"
-                        className="w-100 h-100"
-                        style={{ objectFit: "cover", minHeight: "30vh" }}
-                      />
-                      <div className="position-absolute bottom-0 start-0 end-0 p-3 text-white" 
-                           style={{ 
-                             background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
-                             backdropFilter: "blur(2px)"
-                           }}>
-                        <h6 className="mb-0 fw-bold">Artisan Cuisine</h6>
-                        <p className="small mb-0 opacity-75">Modern presentation with traditional flavors</p>
+<Link href="/packages" style={{ display: "block", height: "100%", textDecoration: "none" }}>
+                      <div className="position-relative h-100 overflow-hidden">
+                        <img
+                          src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
+                          alt="Gourmet Dish"
+                          className="w-100 h-100"
+                          style={{ objectFit: "cover", minHeight: "30vh" }}
+                        />
+                        <div className="position-absolute bottom-0 start-0 end-0 p-3 text-white" 
+                             style={{ 
+                               background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+                               backdropFilter: "blur(2px)"
+                             }}>
+                          <h6 className="mb-0 fw-bold">Artisan Cuisine</h6>
+                          <p className="small mb-0 opacity-75">Modern presentation with traditional flavors</p>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+  
+</Link>                  </div>
   
                   {/* Slide 2 */}
                   <div className="carousel-item h-100">
-                    <div className="position-relative h-100 overflow-hidden">
-                      <img
-                        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38"
-                        alt="Pizza"
-                        className="w-100 h-100"
-                        style={{ objectFit: "cover", minHeight: "30vh" }}
-                      />
-                      <div className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
-                           style={{ 
-                             background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
-                             backdropFilter: "blur(2px)"
-                           }}>
-                        <h6 className="mb-0 fw-bold">Wood-Fired Pizza</h6>
-                        <p className="small mb-0 opacity-75">Authentic Italian recipe</p>
+<Link href={"/packages"} style={{ display: "block", height: "100%", textDecoration: "none" }}>
+                      <div className="position-relative h-100 overflow-hidden">
+                        <img
+                          src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38"
+                          alt="Pizza"
+                          className="w-100 h-100"
+                          style={{ objectFit: "cover", minHeight: "30vh" }}
+                        />
+                        <div className="position-absolute bottom-0 start-0 end-0 p-3 text-white"
+                             style={{ 
+                               background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+                               backdropFilter: "blur(2px)"
+                             }}>
+                          <h6 className="mb-0 fw-bold">Wood-Fired Pizza</h6>
+                          <p className="small mb-0 opacity-75">Authentic Italian recipe</p>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+  
+</Link>                  </div>
                 </div>
   
                 {/* Custom Indicators */}
@@ -207,15 +215,21 @@ export default function Home() {
                   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
                 }}
               >
-                <span className="fw-bold border  border-black rounded-pill p-1 px-3 small">
-                  {categories[0]?.title}
-                </span>
-                <span className="fw-bold border  border-black rounded-pill p-1 px-3 small">
-                  {categories[1]?.title}
-                </span>
-                <span className="fw-bold border  border-black rounded-pill p-1 px-3 small">
-                  {categories[2]?.title}
-                </span>
+                <Link href={"/packages"} style={{ textDecoration: "none" , color: "black" }}>
+                  <span className="fw-bold border  border-black rounded-pill p-1 px-3 small">
+                    {categories[0]?.title}
+                  </span>
+                </Link>
+               <Link href={"/packages"} style={{ textDecoration: "none", color: "black" }}>
+                  <span className="fw-bold border  border-black rounded-pill p-1 px-3 small">
+                    {categories[1]?.title}
+                  </span>
+               </Link>
+               <Link href={"/packages"} style={{ textDecoration: "none", color: "black" }}>
+                  <span className="fw-bold border  border-black rounded-pill p-1 px-3 small">
+                    {categories[2]?.title}
+                  </span>
+               </Link>
               </div>
   
               {/* Video with overlay */}
@@ -245,77 +259,83 @@ export default function Home() {
                 <div className="carousel-inner">
                   {/* Travel Video Slide 1 */}
                   <div className="carousel-item active">
-                    <div className="card border-0 shadow-sm overflow-hidden mx-2" style={{ borderRadius: "12px" }}>
-                      <div className="card-header bg-white border-0 pb-0">
-                        <h6 className="mb-0 fw-semibold text-dark">Trending Places</h6>
-                        <p className="small text-muted mb-1">Explore popular destinations</p>
+<Link href={"/packages"} style={{ display: "block", height: "100%", textDecoration: "none" }}>
+                      <div className="card border-0 shadow-sm overflow-hidden mx-2" style={{ borderRadius: "12px" }}>
+                        <div className="card-header bg-white border-0 pb-0">
+                          <h6 className="mb-0 fw-semibold text-dark">Trending Places</h6>
+                          <p className="small text-muted mb-1">Explore popular destinations</p>
+                        </div>
+                        <div className="card-body p-0">
+                          <video
+                            className="w-100"
+                            muted
+                            loop
+                            autoPlay
+                            playsInline
+                            style={{ height: "200px", objectFit: "cover", minHeight: "30vh" }}
+                          >
+                            <source src="https://cdn.pixabay.com/video/2024/12/03/244754_tiny.mp4" type="video/mp4" />
+                            Your browser does not support the video tag
+                          </video>
+                        </div>
                       </div>
-                      <div className="card-body p-0">
-                        <video
-                          className="w-100"
-                          muted
-                          loop
-                          autoPlay
-                          playsInline
-                          style={{ height: "200px", objectFit: "cover", minHeight: "30vh" }}
-                        >
-                          <source src="https://cdn.pixabay.com/video/2024/12/03/244754_tiny.mp4" type="video/mp4" />
-                          Your browser does not support the video tag
-                        </video>
-                      </div>
-                    </div>
-                  </div>
+  
+</Link>                  </div>
                   
                   {/* Travel Video Slide 2 */}
                   <div className="carousel-item">
-                    <div className="card border-0 shadow-sm overflow-hidden mx-2" style={{ borderRadius: "12px" }}>
-                      <div className="card-header bg-white border-0 pb-0">
-                        <h6 className="mb-0 fw-semibold text-dark">Trending Places</h6>
-                        <p className="small text-muted mb-1">Discover hidden gems</p>
+<Link href={"/packages"} style={{ display: "block", height: "100%", textDecoration: "none" }}>
+                      <div className="card border-0 shadow-sm overflow-hidden mx-2" style={{ borderRadius: "12px" }}>
+                        <div className="card-header bg-white border-0 pb-0">
+                          <h6 className="mb-0 fw-semibold text-dark">Trending Places</h6>
+                          <p className="small text-muted mb-1">Discover hidden gems</p>
+                        </div>
+                        <div className="card-body p-0">
+                          <video
+                            className="w-100"
+                            muted
+                            loop
+                            autoPlay
+                            playsInline
+                            style={{ height: "200px", objectFit: "cover", minHeight: "30vh" }}
+                          >
+                            <source src="https://cdn.pixabay.com/video/2019/02/19/21528-318978038_tiny.mp4" type="video/mp4" />
+                            Your browser does not support the video tag
+                          </video>
+                        </div>
                       </div>
-                      <div className="card-body p-0">
-                        <video
-                          className="w-100"
-                          muted
-                          loop
-                          autoPlay
-                          playsInline
-                          style={{ height: "200px", objectFit: "cover", minHeight: "30vh" }}
-                        >
-                          <source src="https://cdn.pixabay.com/video/2019/02/19/21528-318978038_tiny.mp4" type="video/mp4" />
-                          Your browser does not support the video tag
-                        </video>
-                      </div>
-                    </div>
-                  </div>
+  
+</Link>                  </div>
                 </div>
               </div>
               
               <div className="border rounded mt-4 overflow-hidden animate-on-load" style={{ boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
-                <div className="position-relative">
-                  <video
-                    className="w-100"
-                    muted
-                    loop
-                    autoPlay
-                    playsInline
-                    style={{ height: "180px", objectFit: "cover", minHeight: "30vh" }}
-                  >
-                    <source src="https://cdn.pixabay.com/video/2025/06/09/284566_tiny.mp4" type="video/mp4" />
-                    Your browser does not support the video tag
-                  </video>
-                  
-                  {/* Overlay Text */}
-                  <div className="position-absolute bottom-0 start-0 end-0 p-2" 
-                       style={{ 
-                         background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
-                         color: 'white'
-                       }}>
-                    <p className="mb-0 fw-bold" style={{ fontSize: '1.1rem' }}>Not All Who Wander Are Lost</p>
-                    <p className="mb-1 small opacity-75">Find your path through unexpected journeys</p>
+<Link href={"/packages"} style={{ display: "block", height: "100%", textDecoration: "none" }}>
+                  <div className="position-relative">
+                    <video
+                      className="w-100"
+                      muted
+                      loop
+                      autoPlay
+                      playsInline
+                      style={{ height: "180px", objectFit: "cover", minHeight: "30vh" }}
+                    >
+                      <source src="https://cdn.pixabay.com/video/2025/06/09/284566_tiny.mp4" type="video/mp4" />
+                      Your browser does not support the video tag
+                    </video>
+                    
+                    {/* Overlay Text */}
+                    <div className="position-absolute bottom-0 start-0 end-0 p-2" 
+                         style={{ 
+                           background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
+                           color: 'white'
+                         }}>
+                      <p className="mb-0 fw-bold" style={{ fontSize: '1.1rem' }}>Not All Who Wander Are Lost</p>
+                      <p className="mb-1 small opacity-75">Find your path through unexpected journeys</p>
+                    </div>
                   </div>
-                </div>
-                
+  
+</Link>                
                 {/* Footer Description with Arrow */}
                 <div className="p-3 bg-light d-flex justify-content-between align-items-center">
                   <p className="small mb-0">The best stories come from unplanned detours stories come from unplanned detours stories come from unplanned detours</p>
