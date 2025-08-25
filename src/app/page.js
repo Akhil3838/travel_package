@@ -235,7 +235,7 @@ export default function Home() {
               {/* Video with overlay */}
               <div className="position-relative w-100 h-100" style={{ zIndex: 1, borderRadius: '30px' }}>
                 <video
-                  src="https://cdn.jumeirah.com/-/mediadh/dh/hospitality/jumeirah/home/banner/dreams-desktop-2560x1440"
+                  src="https://travelcultz.com/public/images/travelcultz.mp4"
                   autoPlay
                   loop
                   muted
