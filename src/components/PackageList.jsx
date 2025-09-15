@@ -32,7 +32,7 @@ const PackageList = ({ packages, totalpage, onPageChange }) => {
 
       {/* Packages */}
       {packages.map((pkg) => (
-        <PackageCard key={pkg.id} pkg={pkg} />
+        <PackageCard key={pkg.id} pkg={pkg}/>
       ))}
 
       {/* Pagination */}
