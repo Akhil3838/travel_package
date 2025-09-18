@@ -36,46 +36,82 @@ const PackageList = ({ packages, totalpage, onPageChange }) => {
       ))}
 
       {/* Pagination */}
-      <nav aria-label="Pagination" className="mt-4">
-        <ul className="pagination justify-content-center">
-          <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-            <button
-              className="page-link"
-              onClick={() => handlePageClick(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              Previous
-            </button>
-          </li>
+<nav aria-label="Pagination" style={{ marginTop: "20px", textAlign: "center" }}>
+  <ul
+    style={{
+      display: "flex",
+      listStyle: "none",
+      padding: 0,
+      justifyContent: "center",
+      gap: "8px",
+    }}
+  >
+    {/* Previous Button */}
+    <li>
+      <button
+        onClick={() => handlePageClick(currentPage - 1)}
+        disabled={currentPage === 1}
+        style={{
+          padding: "8px 14px",
+          borderRadius: "8px",
+          border: "1px solid #ddd",
+          backgroundColor: currentPage === 1 ? "#f5f5f5" : "#fff",
+          cursor: currentPage === 1 ? "not-allowed" : "pointer",
+          color: currentPage === 1 ? "#aaa" : "#333",
+          fontWeight: "500",
+          transition: "all 0.2s ease",
+        }}
+      >
+        &lt;
+      </button>
+    </li>
 
-          {[...Array(totalpage)].map((_, index) => {
-            const pageNum = index + 1;
-            return (
-              <li
-                key={pageNum}
-                className={`page-item ${currentPage === pageNum ? "active" : ""}`}
-              >
-                <button
-                  className="page-link"
-                  onClick={() => handlePageClick(pageNum)}
-                >
-                  {pageNum}
-                </button>
-              </li>
-            );
-          })}
+    {/* Page Numbers */}
+    {[...Array(totalpage)].map((_, index) => {
+      const pageNum = index + 1;
+      return (
+        <li key={pageNum}>
+          <button
+            className={currentPage === pageNum ? "active" : ""}
+            onClick={() => handlePageClick(pageNum)}
+            style={{
+              padding: "8px 14px",
+              borderRadius: "8px",
+              border: currentPage === pageNum ? "1px solid #007bff" : "1px solid #ddd",
+              backgroundColor: currentPage === pageNum ? "#007bff" : "#fff",
+              color: currentPage === pageNum ? "#fff" : "#333",
+              fontWeight: currentPage === pageNum ? "600" : "400",
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+            }}
+          >
+            {pageNum}
+          </button>
+        </li>
+      );
+    })}
 
-          <li className={`page-item ${currentPage === totalpage ? "disabled" : ""}`}>
-            <button
-              className="page-link"
-              onClick={() => handlePageClick(currentPage + 1)}
-              disabled={currentPage === totalpage}
-            >
-              Next
-            </button>
-          </li>
-        </ul>
-      </nav>
+    {/* Next Button */}
+    <li>
+      <button
+        onClick={() => handlePageClick(currentPage + 1)}
+        disabled={currentPage === totalpage}
+        style={{
+          padding: "8px 14px",
+          borderRadius: "8px",
+          border: "1px solid #ddd",
+          backgroundColor: currentPage === totalpage ? "#f5f5f5" : "#fff",
+          cursor: currentPage === totalpage ? "not-allowed" : "pointer",
+          color: currentPage === totalpage ? "#aaa" : "#333",
+          fontWeight: "500",
+          transition: "all 0.2s ease",
+        }}
+      >
+        &gt;
+      </button>
+    </li>
+  </ul>
+</nav>
     </div>
   );
 };

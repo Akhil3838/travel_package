@@ -50,10 +50,10 @@ const PackageDetails = () => {
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb breadcrumb-arrow bg-transparent p-0 m-0">
               <li className="breadcrumb-item">
-                <a href="#" className="text-white-50">Home</a>
+                <a href="/" className="text-white-50">Home</a>
               </li>
               <li className="breadcrumb-item">
-                <a href="#" className="text-white-50">{details.category?.title}</a>
+                <a href="/packages" className="text-white-50">{details.category?.title}</a>
               </li>
               <li className="breadcrumb-item active text-white" aria-current="page">
                 {details.package_title}

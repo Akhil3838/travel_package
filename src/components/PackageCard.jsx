@@ -66,12 +66,14 @@ const PackageCard = ({ pkg = {} }) => {
             </button>
 
             {/* Package image */}
-            <img
-              src={imageUrl}
-              alt={package_title}
-              className="img-fluid w-100 h-100"
-              style={{ objectFit: "cover", minHeight: "250px" }}
-            />
+          <Link href={`/packageDetails/${slug}`}>
+              <img
+                src={imageUrl}
+                alt={package_title}
+                className="img-fluid w-100 h-100"
+                style={{ objectFit: "cover", minHeight: "250px" }}
+              />
+          </Link>
           </div>
 
           <div className="col-md-8">
@@ -108,12 +110,12 @@ const PackageCard = ({ pkg = {} }) => {
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <div>
                     <span className="text-muted me-2">
-                      <i className="fas fa-bus me-1 text-primary"></i>
+                      <i className="fas fa-bus me-1 text-dark"></i>
                       {transport}
                     </span>
                   </div>
                   <div>
-                    <i className="fas fa-clock me-1 text-primary"></i>
+                    <i className="fas fa-clock me-1 text-dark"></i>
                     <span>{days} days</span>
                   </div>
                 </div>
@@ -133,10 +135,10 @@ const PackageCard = ({ pkg = {} }) => {
                   </div>
                   <div className="d-flex gap-2">
                     <Link href={`/packageDetails/${slug}`}>
-                      <button className="btn btn-outline-primary">Details</button>
+                      <button className="btn btn-outline-dark">Details</button>
                     </Link>
                     <button 
-                      className="btn btn-primary"
+                      className="btn btn-dark"
                       onClick={() => setShowEnquiryModal(true)}
                     >
                       Enquiry

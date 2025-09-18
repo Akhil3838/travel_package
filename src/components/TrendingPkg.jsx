@@ -8,6 +8,8 @@ function TrendingPkg() {
   const fetchTrendingPackages = async () => {
     try {
       const result = await getTrendingPkg();
+      console.log(result);
+      
       setTrendingPackages(result?.data?.trending_packages || []);
     } catch (error) {
       console.error('Error fetching packages:', error);
@@ -31,26 +33,28 @@ console.log(trendingPackages);
               <div className="row g-4">
                 {trendingPackages.map((pkg) => (
                   <div key={pkg.id} className="col-md-6 col-lg-3">
-                    <div className="location-card">
-                      <div className="location-image-container">
-                        <img
-                          src={pkg.thumbnails[0].image || "https://via.placeholder.com/500x300?text=No+Image"}
-                          alt={pkg.package_title}
-                          className="location-image"
-                        />
-                        {pkg.add_badge_status !== 'no' && (
-                          <div className="location-badge">{pkg.add_badge_status}</div>
-                        )}
-                      </div>
-                      <div className="location-info p-3">
-                        <h3 className="location-name">{pkg.package_title}</h3>
-                        <div className="location-meta d-flex justify-content-between align-items-center">
-                          <span className="location-price">From ₹{pkg.price || 'N/A'}</span>
-                          <span className="location-rating">⭐ {pkg.rating || '4.8'}</span>
+<Link href={`/packageDetails/${pkg.slug}`} style={{ textDecoration: 'none' }}>
+                      <div className="location-card">
+                        <div className="location-image-container">
+                          <img
+                            src={pkg.thumbnails[0].image || "https://via.placeholder.com/500x300?text=No+Image"}
+                            alt={pkg.package_title}
+                            className="location-image"
+                          />
+                          {pkg.add_badge_status !== 'no' && (
+                            <div className="location-badge">{pkg.add_badge_status}</div>
+                          )}
+                        </div>
+                        <div className="location-info p-3">
+                          <h3 className="location-name">{pkg.package_title}</h3>
+                          <div className="location-meta d-flex justify-content-between align-items-center">
+                            <span className="location-price">From ₹{pkg.price || 'N/A'}</span>
+                            <span className="location-rating">⭐ {pkg.rating || '4.8'}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
+  
+</Link>                  </div>
                 ))}
               </div>
             </div>

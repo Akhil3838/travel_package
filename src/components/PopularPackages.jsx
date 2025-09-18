@@ -42,20 +42,22 @@ function PopularPackages() {
             style={{ scrollSnapAlign: 'start' }}
           >
             <div className="package-card h-100 border-0 shadow-sm overflow-hidden rounded-4">
-              <div className="package-img-container position-relative">
-                <img
-                  src={pkg.packimages?.[0]?.image || '/default-image.jpg'}
-                  alt={pkg.package_title}
-                  className="img-fluid w-100"
-                  style={{ height: '220px', objectFit: 'cover' }}
-                />
-                {pkg.add_badge_status === 'yes' && (
-                  <div className="package-tag bg-dark text-white position-absolute top-3 end-3 px-3 py-1 rounded-pill small fw-bold">
-                    {pkg.badge?.title || 'FEATURED'}
-                  </div>
-                )}
-              </div>
-
+<Link href={`/packageDetails/${pkg.slug}`} style={{ textDecoration: 'none' }}>
+                <div className="package-img-container position-relative">
+                  <img
+                    src={pkg.packimages?.[0]?.image || '/default-image.jpg'}
+                    alt={pkg.package_title}
+                    className="img-fluid w-100"
+                    style={{ height: '220px', objectFit: 'cover' }}
+                  />
+                  {pkg.add_badge_status === 'yes' && (
+                    <div className="package-tag bg-dark text-white position-absolute top-3 end-3 px-3 py-1 rounded-pill small fw-bold">
+                      {pkg.badge?.title || 'FEATURED'}
+                    </div>
+                  )}
+                </div>
+  
+</Link>
               <div className="package-body p-4">
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <span className="badge bg-info bg-opacity-10 text-info">
@@ -89,10 +91,10 @@ function PopularPackages() {
                     {pkg.special_price && pkg.special_price < pkg.price ? (
                       <>
                         <span className="text-decoration-line-through text-muted me-2 small">
-                          ${pkg.price}
+                          ₹{pkg.price}
                         </span>
                         <span className="h5 fw-bold text-dark">
-                          ${pkg.special_price}
+                           ₹{pkg.special_price}
                         </span>
                       </>
                     ) : (
@@ -100,8 +102,8 @@ function PopularPackages() {
                     )}
                   </div>
                   <Link href={`/packageDetails/${pkg.slug}`}>
-                    <button className="btn btn-dark rounded-pill px-3 py-2">
-                      <span className="small fw-bold">Book Now</span>
+                    <button className="btn btn-light  rounded-pill px-3 py-2">
+                      <span className="small fw-bold">Enquery Now</span>
                       <i className="fas fa-arrow-right ms-2 small"></i>
                     </button>
                   </Link>

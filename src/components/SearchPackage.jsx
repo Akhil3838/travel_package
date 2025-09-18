@@ -1,4 +1,5 @@
 import { searchPackageApi } from '@/services/allApi'
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 function SearchPackage() {
@@ -71,31 +72,33 @@ function SearchPackage() {
   {results.length > 0 ? (
     <ul className="package-list list-group">
       {results.map((pkg) => (
-        <li key={pkg.id} className="package-item list-group-item">
-          <div className="package-content d-flex align-items-center">
-            <div className="package-image mr-3">
-              <img 
-                src={pkg?.thumbnails[0]?.image} 
-                alt={pkg.package_title}
-                className="package-thumbnail"
-                onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src = 'https://via.placeholder.com/40?text=📦';
-                }}
-              />
+<Link href={`/packageDetails/${pkg.slug}`} style={{ textDecoration: 'none' }}>
+          <li key={pkg.id} className="package-item list-group-item">
+            <div className="package-content d-flex align-items-center">
+              <div className="package-image mr-3">
+                <img 
+                  src={pkg?.thumbnails[0]?.image} 
+                  alt={pkg.package_title}
+                  className="package-thumbnail"
+                  onError={(e) => {
+                    e.target.onerror = null; 
+                    e.target.src = 'https://via.placeholder.com/40?text=📦';
+                  }}
+                />
+              </div>
+              <div className="package-details flex-grow-1">
+                <h5 className="package-title mb-0">{pkg.package_title}</h5>
+                {pkg.author && (
+                  <small className="package-author text-muted">by {pkg.author}</small>
+                )}
+              </div>
+              <div className="package-arrow ml-2">
+                <i className="fas fa-chevron-right text-secondary"></i>
+              </div>
             </div>
-            <div className="package-details flex-grow-1">
-              <h5 className="package-title mb-0">{pkg.package_title}</h5>
-              {pkg.author && (
-                <small className="package-author text-muted">by {pkg.author}</small>
-              )}
-            </div>
-            <div className="package-arrow ml-2">
-              <i className="fas fa-chevron-right text-secondary"></i>
-            </div>
-          </div>
-        </li>
-      ))}
+          </li>
+  
+</Link>      ))}
     </ul>
   ) : query.trim() ? (
     <div className="no-results text-center py-4">

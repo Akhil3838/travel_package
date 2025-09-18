@@ -90,38 +90,40 @@ const FilterSidebar = ({ onApplyFilters }) => {
           ))}
         </div>
 
-        {/* Price Range */}
-        <div className="mb-4">
-          <h6 className="fw-semibold mb-3">Price Range</h6>
-          <div className="range-slider mb-2">
-            <input
-              type="range"
-              className="form-range"
-              min="0"
-              max="5000"
-              step="100"
-              value={priceRange.min}
-              onChange={(e) =>
-                setPriceRange((prev) => ({ ...prev, min: +e.target.value }))
-              }
-            />
-            <input
-              type="range"
-              className="form-range"
-              min="0"
-              max="5000"
-              step="100"
-              value={priceRange.max}
-              onChange={(e) =>
-                setPriceRange((prev) => ({ ...prev, max: +e.target.value }))
-              }
-            />
-          </div>
-          <div className="d-flex justify-content-between small text-muted">
-            <span>₹{priceRange.min}</span>
-            <span>₹{priceRange.max}+</span>
-          </div>
-        </div>
+{/* Price Range */}
+<div className="mb-4">
+  <h6 className="fw-semibold mb-3">Price Range</h6>
+  <div className="range-slider mb-2">
+    <input
+      type="range"
+      className="form-range"
+      min="0"
+      max="5000"
+      step="100"
+      value={priceRange.min}
+      style={{ accentColor: "#222" }}   // 👈 dark style
+      onChange={(e) =>
+        setPriceRange((prev) => ({ ...prev, min: +e.target.value }))
+      }
+    />
+    <input
+      type="range"
+      className="form-range"
+      min="0"
+      max="5000"
+      step="100"
+      value={priceRange.max}
+      style={{ accentColor: "#000000ff" }}   // 👈 dark style
+      onChange={(e) =>
+        setPriceRange((prev) => ({ ...prev, max: +e.target.value }))
+      }
+    />
+  </div>
+  <div className="d-flex justify-content-between small text-muted">
+    <span>₹{priceRange.min}</span>
+    <span>₹{priceRange.max}+</span>
+  </div>
+</div>
 
         {/* Duration */}
         <div className="mb-4">
@@ -137,7 +139,7 @@ const FilterSidebar = ({ onApplyFilters }) => {
                   onChange={() => handleDayChange(day)}
                 />
                 <label
-                  className="btn btn-outline-primary btn-sm"
+                  className="btn btn-outline-dark btn-sm"
                   htmlFor={`duration-${index}`}
                 >
                   {day}D
@@ -214,7 +216,7 @@ const FilterSidebar = ({ onApplyFilters }) => {
         </div> */}
 
         <button
-          className="btn btn-primary w-100 mt-3"
+          className="btn btn-dark w-100 mt-3"
           onClick={applyFilters}
         >
           Apply Filters
@@ -234,7 +236,7 @@ const FilterSidebar = ({ onApplyFilters }) => {
           Our travel experts are available 24/7 to help you plan your perfect
           trip.
         </p>
-        <button className="btn btn-outline-primary w-100">Contact Us</button>
+        <button className="btn btn-outline-dark w-100">Contact Us</button>
       </div>
     </div>
   );
