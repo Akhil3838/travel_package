@@ -59,7 +59,7 @@ function Header() {
 
             {/* ))} */}
             <li className="nav-item ms-3">
-              <a href="/login" className="btn btn-rounded btn-primary d-flex align-items-center">
+              <a href="/packages" className="btn btn-rounded btn-primary d-flex align-items-center">
                 {/* <FaUserAlt className="me-1" /> */}
                 Enquiry Now
               </a>
