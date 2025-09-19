@@ -1,6 +1,25 @@
-import React from 'react'
+'use client'
+import { getuserData } from '@/services/allApi';
+import React, { use, useEffect, useState } from 'react'
 
 function Footer() {
+
+  const [links, setLinks] = useState([]);
+
+  const fetchLinks = async () => {
+    try {
+      const result = await getuserData();
+      console.log(result);
+      
+      setLinks(result?.data?.links || []);
+    } catch (error) {
+      console.error("Error fetching links:", error);
+    }
+  }
+
+  useEffect(() => {
+    fetchLinks();
+  },[])
   return (
     <>
     <footer className="bg-dark text-white pt-5 pb-4">

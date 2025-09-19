@@ -76,3 +76,34 @@ export const searchAi = async (reqBody) => {
   const res = await commonApi("POST", `${serverUrl}/search-travel`, reqBody, "");
   return res.data; // ✅ only return the payload
 };
+
+
+export const getuserData=async()=>{
+    return await commonApi('GET',`${serverUrl}/get-allData`,"","")
+}
+
+// search bus
+export const getSearchBus = async ({
+  departure,
+  destination,
+  travel_date,
+  passengers,
+  min_price,
+  max_price,
+} = {}) => {
+  const params = new URLSearchParams();
+
+  if (departure) params.append("departure", departure);
+  if (destination) params.append("destination", destination);
+  if (travel_date) params.append("travel_date", travel_date);
+  if (passengers) params.append("passengers", passengers);
+  if (min_price) params.append("min_price", min_price);
+  if (max_price) params.append("max_price", max_price);
+
+  return commonApi("GET", `${serverUrl}/search-bus?${params.toString()}`, "", "");
+};
+
+export const saveBooking=async()=>{
+    return await commonApi('POST',`${serverUrl}/save-booking`,"","")
+}
+

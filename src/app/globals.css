@@ -1457,5 +1457,132 @@ img {
 
 
 
-        /* new styles */
-        
+        /* new styles .....Header.......... */
+
+.bold{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: large;
+}
+.header-navbar {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 0.8rem 0;
+  font-family: 'Inter', sans-serif;
+  transition: 0.3s;
+}
+
+.header-navbar .navbar-brand .brand-name {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.logo {
+  height: 80px;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-link {
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00f2fe;
+}
+
+.nav-link .underline {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00f2fe;
+  transition: 0.3s;
+}
+
+.nav-link:hover .underline {
+  width: 100%;
+}
+
+.btn-rounded {
+  border-radius: 50px;
+  padding: 0.35rem 1.2rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, #091819, #181f25);
+  border: none;
+  color: white;
+}
+
+.btn-rounded:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* new style */
+
+.bus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bus-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  background: #fff;
+}
+
+.bus-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.bus-image {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.bus-details {
+  flex: 1;
+}
+
+.bus-details h5 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 1.2rem;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.book-btn {
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.3s;
+}
+
+.book-btn:hover {
+  background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+}

@@ -8,6 +8,7 @@ import PopularPackages from "@/components/PopularPackages";
 import SearchPackage from "@/components/SearchPackage";
 import AiSearchbar from "@/components/AiSearchbar";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export default function Home() {
 
@@ -31,6 +32,9 @@ export default function Home() {
 
   return (
     <>
+    <Header/>
+              <AiSearchbar/>
+
 <div >
         <div className="container-fluid px-4 py-3" style={{ backgroundColor: "#f5f5f5" }}>
           <div className="row g-4">
@@ -351,7 +355,6 @@ export default function Home() {
         
         {/* Add some CSS for the parallax effect */}
 
-          <AiSearchbar/>
 
   
         {/* Trending Locations Section */}
