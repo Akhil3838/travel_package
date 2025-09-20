@@ -103,7 +103,7 @@ export const getSearchBus = async ({
   return commonApi("GET", `${serverUrl}/search-bus?${params.toString()}`, "", "");
 };
 
-export const saveBooking=async()=>{
-    return await commonApi('POST',`${serverUrl}/save-booking`,"","")
+export const saveBooking=async(reqBody)=>{
+    return await commonApi('POST',`${serverUrl}/save-booking`,reqBody,"")
 }
 

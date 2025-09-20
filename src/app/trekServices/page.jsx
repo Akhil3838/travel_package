@@ -1,8 +1,10 @@
 'use client';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import { getSearchBus, saveEnquery } from '@/services/allApi';
-import React, { use, useEffect, useState } from 'react';
+import { getSearchBus, saveBooking, saveEnquery } from '@/services/allApi';
+import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation'; // ✅ correct import
 
 function BusBooking() {
   const [from, setFrom] = useState('');
@@ -12,6 +14,16 @@ function BusBooking() {
   const [showPassengerDropdown, setShowPassengerDropdown] = useState(false);
   const [busList, setBusList] = useState([]);
   const [loading, setLoading] = useState(false);
+    const router = useRouter(); // ⬅️ initialize router
+
+  // modal states
+  const [showModal, setShowModal] = useState(false);
+  const [selectedBus, setSelectedBus] = useState(null);
+  const [bookingData, setBookingData] = useState({
+    name: '',
+    email: '',
+    phone: '',   
+  });
 
   const today = new Date().toISOString().split('T')[0];
 
@@ -30,7 +42,6 @@ function BusBooking() {
       });
 
       setBusList(data?.data?.data || []);
-      console.log('Search results:', data);
     } catch (err) {
       console.error('Error fetching buses:', err);
     } finally {
@@ -38,18 +49,47 @@ function BusBooking() {
     }
   };
 
-  const saveBooking = async () => {
+  // Handle booking save
+  const handleSaveBooking = async (e) => {
+    e.preventDefault();
+
+    if (!selectedBus) return;
+
     try {
-      const data = await saveEnquery();
-      console.log('Booking saved:', data);
+      const payload = {
+        bus_id: selectedBus.id,
+        name: bookingData.name,
+        email: bookingData.email,
+        phone: bookingData.phone,
+        departure: selectedBus.departure,
+        destination: selectedBus.destination,
+        travel_date: selectedBus.travel_date,
+        no_of_person: passengers,
+      };
+
+      const data = await saveBooking(payload);
+      console.log(data);
+      
+      if (data?.status === 200) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Bus booking successfully!',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          router.push("/"); // ✅ redirect after clicking OK
+        });
+        
+      }
+
+      setShowModal(false);
+      setBookingData({ name: '', email: '', phone: '' });
     } catch (err) {
       console.error('Error saving booking:', err);
+      alert('Booking failed. Please try again.');
     }
   };
-
-  useEffect(() => {
-   saveBooking()
-  }, []);
 
   return (
     <>
@@ -67,8 +107,8 @@ function BusBooking() {
 
           {/* Search Form */}
           <form onSubmit={handleSearch}>
+            {/* From & To */}
             <div className="location-inputs">
-              {/* From */}
               <div className="input-group">
                 <div className="input-icon">
                   <i className="fas fa-map-marker-alt"></i>
@@ -86,7 +126,6 @@ function BusBooking() {
                 </div>
               </div>
 
-              {/* To */}
               <div className="input-group">
                 <div className="input-icon">
                   <i className="fas fa-map-marker-alt"></i>
@@ -105,9 +144,8 @@ function BusBooking() {
               </div>
             </div>
 
-            {/* Date + Passengers */}
+            {/* Date & Passengers */}
             <div className="secondary-inputs">
-              {/* Date */}
               <div className="input-group">
                 <div className="input-icon">
                   <i className="fas fa-calendar-day"></i>
@@ -188,32 +226,6 @@ function BusBooking() {
             </button>
           </form>
 
-          {/* Popular routes */}
-          <div className="popular-routes">
-            <p className="section-title">Popular routes:</p>
-            <div className="route-tags">
-              {[
-                { from: 'New York', to: 'Boston' },
-                { from: 'Los Angeles', to: 'San Francisco' },
-                { from: 'Chicago', to: 'Detroit' },
-                { from: 'Miami', to: 'Orlando' },
-                { from: 'Seattle', to: 'Portland' },
-                { from: 'Dallas', to: 'Houston' },
-              ].map((route, index) => (
-                <button
-                  key={index}
-                  className="route-tag"
-                  onClick={() => {
-                    setFrom(route.from);
-                    setTo(route.to);
-                  }}
-                >
-                  {route.from} → {route.to}
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* Search Results */}
           <div className="search-results mt-4">
             {loading && <p className="text-center">Loading buses...</p>}
@@ -243,7 +255,15 @@ function BusBooking() {
                           <i className="fas fa-rupee-sign me-2"></i>
                           {bus.price}
                         </p>
-                        <button className="book-btn">Book Now</button>
+                        <button
+                          className="book-btn"
+                          onClick={() => {
+                            setSelectedBus(bus);
+                            setShowModal(true);
+                          }}
+                        >
+                          Book Now
+                        </button>
                       </div>
                     </div>
                   ))}
@@ -259,6 +279,87 @@ function BusBooking() {
           </div>
         </div>
       </div>
+
+      {/* Booking Modal */}
+      {showModal && selectedBus && (
+        <div className="modal show d-block" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <form onSubmit={handleSaveBooking}>
+                <div className="modal-header">
+                  <h5 className="modal-title">Book {selectedBus.name}</h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={() => setShowModal(false)}
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <p>
+                    {selectedBus.departure} → {selectedBus.destination}
+                  </p>
+                  <p>Date: {new Date(selectedBus.travel_date).toDateString()}</p>
+                  <div className="mb-3">
+                    <label className="form-label">Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={bookingData.name}
+                      onChange={(e) =>
+                        setBookingData({ ...bookingData, name: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="form-label">Email</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      value={bookingData.email}
+                      onChange={(e) =>
+                        setBookingData({
+                          ...bookingData,
+                          email: e.target.value,
+                        })
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="form-label">Phone</label>
+                    <input
+                      type="tel"
+                      className="form-control"
+                      value={bookingData.phone}
+                      onChange={(e) =>
+                        setBookingData({
+                          ...bookingData,
+                          phone: e.target.value,
+                        })
+                      }
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => setShowModal(false)}
+                  >
+                    Cancel
+                  </button>
+                  <button type="submit" className="btn btn-primary">
+                    Confirm Booking
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </>
   );

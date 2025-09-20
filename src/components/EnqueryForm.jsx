@@ -1,8 +1,10 @@
 'use client'
 import { saveEnquery } from '@/services/allApi';
+import { useRouter } from 'next/navigation'; 
 import React, { useState } from 'react';
 
 function EnquiryForm({ packageId }) {
+    const router = useRouter(); // ⬅️ initialize router
   console.log(packageId);
   
   const [formData, setFormData] = useState({
@@ -25,23 +27,27 @@ console.log(formData);
   };
 
   // Submit form
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      const fd = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        fd.append(key, value);
-      });
+  try {
+    const fd = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      fd.append(key, value);
+    });
 
-      const result = await saveEnquery(fd);
-      console.log("Enquiry saved:", result);
+    const result = await saveEnquery(fd);
+    console.log("Enquiry saved:", result);
+
+    if (result?.status === 200) {
       alert("Enquiry submitted successfully!");
-    } catch (error) {
-      console.error('Error saving enquiry:', error);
-      alert("Failed to submit enquiry");
+      
     }
-  };
+  } catch (error) {
+    console.error("Error saving enquiry:", error);
+    alert("Failed to submit enquiry");
+  }
+};
 
   return (
     <>
