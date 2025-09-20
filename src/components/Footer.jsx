@@ -48,11 +48,11 @@ function Footer() {
       <div className="col-lg-2 col-md-6">
         <h5 className="fw-bold mb-4">Explore</h5>
         <ul className="list-unstyled">
-          <li className="mb-2"><a href="#" className=" text-decoration-none text-light">Destinations</a></li>
-          <li className="mb-2"><a href="#" className=" text-decoration-none text-light">Tour Packages</a></li>
-          <li className="mb-2"><a href="#" className=" text-decoration-none text-light">Flight Deals</a></li>
-          <li className="mb-2"><a href="#" className=" text-decoration-none text-light">Hotel Stays</a></li>
-          <li className="mb-2"><a href="#" className=" text-decoration-none text-light">Travel Guides</a></li>
+          <li className="mb-2"><a href="/packages" className=" text-decoration-none text-light">Destinations</a></li>
+          <li className="mb-2"><a href="/packages" className=" text-decoration-none text-light">Tour Packages</a></li>
+          <li className="mb-2"><a href="/packages" className=" text-decoration-none text-light">Flight Deals</a></li>
+          <li className="mb-2"><a href="/packages" className=" text-decoration-none text-light">Hotel Stays</a></li>
+          <li className="mb-2"><a href="/packages" className=" text-decoration-none text-light">Travel Guides</a></li>
         </ul>
       </div>
 
