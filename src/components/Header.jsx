@@ -29,7 +29,7 @@ function Header() {
             {/* {["Home", "About", "Services", "Contact"].map((link, idx) => ( */}
               <li className="nav-item mx-2">
                 <a
-                  href='/Home'
+                  href='/'
                   className="nav-link position-relative"
                 >
                <span className="bold">   Home</span>
