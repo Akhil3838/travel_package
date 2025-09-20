@@ -36,10 +36,10 @@ function Footer() {
           Discover the world with GoWonder. We create unforgettable travel experiences tailored just for you.
         </p>
         <div className="social-icons d-flex gap-3">
-          <a href="#" className="text-white fs-5"><i className="fab fa-facebook-f"></i></a>
-          <a href="#" className="text-white fs-5"><i className="fab fa-twitter"></i></a>
-          <a href="#" className="text-white fs-5"><i className="fab fa-instagram"></i></a>
-          <a href="#" className="text-white fs-5"><i className="fab fa-linkedin-in"></i></a>
+          <a href={links[1]?.value} className="text-white fs-5"><i className="fab fa-facebook-f"></i></a>
+          {/* <a href="#" className="text-white fs-5"><i className="fab fa-twitter"></i></a> */}
+          <a href={links[0]?.value} className="text-white fs-5"><i className="fab fa-instagram"></i></a>
+          {/* <a href="#" className="text-white fs-5"><i className="fab fa-linkedin-in"></i></a> */}
           {/* <a href="#" className="text-white fs-5"><i className="fab fa-pinterest-p"></i></a> */}
         </div>
       </div>
@@ -74,15 +74,15 @@ function Footer() {
         <ul className="list-unstyled text-muted">
           <li className="mb-3 d-flex align-items-start">
             <i className="fas fa-map-marker-alt me-3 text-white mt-1"></i>
-            <span className="text-white">123 Travel Street, Wanderlust City, WC 12345</span>
+            <span className="text-white">{links[9]?.value}</span>
           </li>
           <li className="mb-3 d-flex  text-white align-items-center">
             <i className="fas fa-phone-alt me-3  text-white"></i>
-            <span className="text-white">+1 (555) 123-4567</span>
+            <span className="text-white">{links[10]?.value}</span>
           </li>
           <li className="mb-3 d-flex align-items-center">
             <i className="fas fa-envelope me-3  text-white"></i>
-            <span className="text-white">Aalsibackpackers.com</span>
+            <span className="text-white">{links[2]?.value}</span>
           </li>
         </ul>
         
