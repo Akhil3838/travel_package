@@ -32,7 +32,7 @@ function Header() {
                   href='/'
                   className="nav-link position-relative"
                 >
-               <span className="bold">   Home</span>
+               <span className="bold"> Home</span>
                   <span className="underline"></span>
                 </a>
               </li>

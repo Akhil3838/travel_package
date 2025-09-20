@@ -49,9 +49,11 @@ export default function Home() {
               <div className="p-3 rounded-4 mt-2 bg-white border border-light animate-on-load">
                 <h6 className="fw-semibold text-dark mb-3">Group Travel</h6>
                 <div className="d-flex gap-2">
-                  <button className="btn btn-dark w-50 rounded-pill py-2 shadow-sm">Book</button>
-                  <button className="btn btn-outline-dark w-50 rounded-pill py-2 shadow-sm">College</button>
-                </div>
+                  
+                    <button className="btn btn-dark w-50 rounded-pill py-2 shadow-sm">Book</button>
+      <button className="btn btn-outline-dark w-50 rounded-pill py-2 shadow-sm">College</button>
+  
+  </div>
               </div>
   
               {/* Carousel for Travel Video */}

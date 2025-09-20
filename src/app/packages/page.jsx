@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import PackageList from "@/components/PackageList";
 import FilterSidebar from "@/components/FilterSlidebar";
 import { getAllPackages } from "@/services/allApi";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const Packages = () => {
   const [travelPackages, setTravelPackages] = useState([]);
@@ -34,25 +36,29 @@ const Packages = () => {
   };
 
   return (
-    <div className="container py-5">
-      <div className="text-center mb-5">
-        <h2 className="fw-bold display-5 mb-3">Discover the Grand Canyon</h2>
-        <p className="lead text-muted">
-          Explore our curated selection of unforgettable adventures
-        </p>
+<>
+<Header/>
+      <div className="container py-5">
+        <div className="text-center mb-5">
+          <h2 className="fw-bold display-5 mb-3">Discover the Grand Canyon</h2>
+          <p className="lead text-muted">
+            Explore our curated selection of unforgettable adventures
+          </p>
+        </div>
+  
+        <div className="row">
+          <FilterSidebar onApplyFilters={handleApplyFilters} />
+          <PackageList
+            packages={travelPackages}
+            totalpage={totalPage}
+            onPageChange={handlePageChange}
+            currentPage={currentPage}
+          />
+        </div>
       </div>
-
-      <div className="row">
-        <FilterSidebar onApplyFilters={handleApplyFilters} />
-        <PackageList
-          packages={travelPackages}
-          totalpage={totalPage}
-          onPageChange={handlePageChange}
-          currentPage={currentPage}
-        />
-      </div>
-    </div>
-  );
+  <Footer/>
+</> 
+ );
 };
 
 export default Packages;
