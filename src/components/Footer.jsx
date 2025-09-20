@@ -11,11 +11,12 @@ function Footer() {
       const result = await getuserData();
       console.log(result);
       
-      setLinks(result?.data?.links || []);
+      setLinks(result?.data?.data || []);
     } catch (error) {
       console.error("Error fetching links:", error);
     }
   }
+
 
   useEffect(() => {
     fetchLinks();
