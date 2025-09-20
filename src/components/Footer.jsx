@@ -17,6 +17,10 @@ function Footer() {
     }
   }
 
+const instagramLink = links.find(l => l.label === "INSTAGRAM_URL")?.value;
+const facebookLink = links.find(l => l.label === "FACEBOOK_URL")?.value;
+const LinkedinLink = links.find(l => l.label === "Linked In_URL")?.value;
+
 
   useEffect(() => {
     fetchLinks();
@@ -37,11 +41,25 @@ function Footer() {
           Discover the world with GoWonder. We create unforgettable travel experiences tailored just for you.
         </p>
         <div className="social-icons d-flex gap-3">
-          <a href={links[1]?.value} className="text-white fs-5"><i className="fab fa-facebook-f"></i></a>
-          {/* <a href="#" className="text-white fs-5"><i className="fab fa-twitter"></i></a> */}
-          <a href={links[0]?.value} className="text-white fs-5"><i className="fab fa-instagram"></i></a>
-          {/* <a href="#" className="text-white fs-5"><i className="fab fa-linkedin-in"></i></a> */}
-          {/* <a href="#" className="text-white fs-5"><i className="fab fa-pinterest-p"></i></a> */}
+         <div className="social-icons d-flex gap-3">
+  {facebookLink && (
+    <a href={facebookLink} target="_blank" rel="noopener noreferrer" className="text-white fs-5">
+      <i className="fab fa-facebook-f"></i>
+    </a>
+  )}
+  {instagramLink && (
+    <a href={instagramLink} target="_blank" rel="noopener noreferrer" className="text-white fs-5">
+      <i className="fab fa-instagram"></i>
+    </a>
+  )}
+    {LinkedinLink && (
+    <a href={LinkedinLink} target="_blank" rel="noopener noreferrer" className="text-white fs-5">
+<i className="fab fa-linkedin-in"></i>
+    </a>
+  )}
+
+</div>
+
         </div>
       </div>
 
