@@ -1586,3 +1586,120 @@ img {
 .book-btn:hover {
   background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
 }
+
+
+/* in your global CSS file */
+.custom-input {
+  height: 55px;        /* adjust as needed */
+  font-size: 1rem;     /* optional: make text slightly bigger */
+  padding: 0.75rem;    /* optional: more padding inside */
+}
+
+
+
+/* From Uiverse.io by McHaXYT */ 
+.btn-group {
+  height: 55px;
+}
+
+
+ @keyframes floatBubble {
+          0%, 100% {
+            transform: translateY(0px) scale(1);
+            opacity: 0.6;
+          }
+          33% {
+            transform: translateY(-30px) translateX(20px) scale(1.1);
+            opacity: 0.8;
+          }
+          66% {
+            transform: translateY(20px) translateX(-10px) scale(0.9);
+            opacity: 0.7;
+          }
+        }
+
+        @keyframes gridShift {
+          0% {
+            transform: translate(0, 0);
+          }
+          100% {
+            transform: translate(20px, 20px);
+          }
+        }
+
+        @keyframes particleDrift {
+          0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          25% {
+            transform: translate(50px, -25px) rotate(90deg);
+          }
+          50% {
+            transform: translate(25px, -50px) rotate(180deg);
+          }
+          75% {
+            transform: translate(-25px, -25px) rotate(270deg);
+          }
+        }
+
+        @keyframes slideUpFade {
+          0% {
+            transform: translateY(30px);
+            opacity: 0;
+          }
+          100% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        @keyframes scaleIn {
+          0% {
+            transform: scale(0.9);
+            opacity: 0;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+
+        @keyframes gentlePulse {
+          0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+          }
+          50% {
+            transform: scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+          }
+        }
+
+        @keyframes shimmer {
+          0% {
+            background-position: -1000px 0;
+          }
+          100% {
+            background-position: 1000px 0;
+          }
+        }
+
+        @keyframes borderGlow {
+          0%, 100% {
+            border-color: #e2e8f0;
+            box-shadow: 0 0 0 rgba(99, 102, 241, 0);
+          }
+          50% {
+            border-color: #6366f1;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+          }
+        }
+
+        @keyframes iconFloat {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-5px);
+          }
+        }
